@@ -401,7 +401,7 @@
          |  @update 0.2.0
          */
         public function file(){
-            $comment = "PK-Zipped with https://www.github.com/FoxCMS/ZIP";
+            $comment = "PK-Zipped with https://www.github.com/SamBrishes/FoxCMS";
             
             // ZipArchive
             if($this->zipArchive){
