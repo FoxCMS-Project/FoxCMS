@@ -1,0 +1,428 @@
+/*
+ |	Fox Theme
+ |	@file		./css/part.plugins.css
+ |	@author		SamBrishes <pytes@gmx.net>
+ |	@version	0.2.2 [0.2.0] - Beta
+ |
+ |	@require	Wolf CMS 0.8.3, CSS3-capable Browser
+ */
+ 
+/* @start COMMENTS */
+#mainTabs ul li#comment-plugin a:before{
+	content: "\f0e6";
+	font-size: 16px;
+}
+#mainTabs ul li#comment-plugin a #comment-badge{
+	color: rgba(255, 255, 255, 0.75);
+	margin: 13px 0 0 2px;
+	padding: 1px 4px 3px 4px;
+	display: inline-block;
+	font-size: 10px;
+	line-height: 10px;
+	text-shadow: none;
+	vertical-align: top;
+	background-color: #202020;
+	border-radius: 3px;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	box-shadow: inset 0 0 1px #000;
+	-moz-box-shadow: inset 0 0 1px #000;
+	-webkit-box-shadow: inset 0 0 1px #000;
+}
+#mainTabs ul li#comment-plugin a.current #comment-badge{
+	background-color: #3a3a3a;
+	box-shadow: 0 0 1px 0 #000;
+	-moz-box-shadow: 0 0 1px 0 #000;
+	-webkit-box-shadow: 0 0 1px 0 #000;
+}
+body#body_plugin_comment #sidebar p.button a[href$="comment/"]:before{
+	content: "\f0e6";
+}
+body#body_plugin_comment #sidebar p.button a[href$="moderation/"]:before{
+	content: "\f27a";
+}
+body#body_plugin_comment #sidebar p.button a[href$="settings/"]:before{
+	content: "\f02d";
+	font-size: 19px;
+}
+body#body_plugin_comment #sidebar p.button a[href$="documentation/"]:before{
+	content: "\f02d";
+	font-size: 19px;
+}
+body#body_plugin_comment #comments-def{
+	width: 100%;
+	height: 40px;
+	margin: 20px 0 0 0;
+	padding: 0;
+	display: table;
+	position: static;
+	border: 1px solid #d0d0d0;
+	border-bottom: none;
+}
+body#body_plugin_comment #comments-def div{
+	color: #777;
+	height: 40px;
+	margin: 0;
+	padding: 10px 15px;
+	display: table-cell;
+	position: static;
+	font-size: 14px;
+	border-right: 1px solid #d0d0d0;
+	background-color: #eaeaea;
+	vertical-align: top;
+}
+body#body_plugin_comment #comments-def div.modify{
+	width: 125px;
+	text-align: center;
+	border-right: none;
+}
+body#body_plugin_comment #comments-def+h3{
+	color: #aaa;
+	margin: 0;
+	padding: 12px 0;
+	display: block;
+	font-size: 14px;
+	font-style: italic;
+	text-align: center;
+	line-height: 15px;
+	font-weight: normal;
+	border-left: 1px solid #d0d0d0;
+	border-right: 1px solid #d0d0d0;
+	border-bottom: 1px solid #d0d0d0;
+}
+body#body_plugin_comment ol#comments{
+	
+}
+body#body_plugin_comment ol#comments li strong{
+	margin: 15px 0 0 0;
+	display: inline-block;
+	font-size: 14px;
+	line-height: 14px;
+}
+body#body_plugin_comment ol#comments li>strong:first-child{
+	margin-left: 15px;
+}
+body#body_plugin_comment ol#comments li.odd,
+body#body_plugin_comment ol#comments li.even{
+	margin: 0;
+	padding: 0;
+	border-left: 1px solid #d0d0d0;
+	border-bottom: 1px solid #d0d0d0;
+	background-color: #fff;
+}
+body#body_plugin_comment ol#comments li.odd:hover,
+body#body_plugin_comment ol#comments li.even:hover{
+	background-color: #f0f0f0;
+}
+body#body_plugin_comment ol#comments li p{
+	margin: 10px 137px 10px 10px;
+	font-size: 12px;
+	line-height: 16px;
+}
+body#body_plugin_comment ol#comments li div.infos{
+	top: 0;
+	right: 0;
+	bottom: 0;
+	color: transparent;
+	width: 127px;
+	margin: 0;
+	padding: 5px 0;
+	display: block;
+	font-size: 0;
+	text-align: center;
+	border-left: 1px solid #d0d0d0;
+	border-right: 1px solid #d0d0d0;
+}
+body#body_plugin_comment ol#comments li div.infos::first-line{
+	color: #777;
+	font-size: 12px;
+}
+body#body_plugin_comment ol#comments li div.infos a{
+	width: 22px;
+	height: 22px;
+	color: transparent;
+	margin: 8px 0 0 0;
+	padding: 0;
+	display: inline-block;
+	font-size: 0;
+}
+body#body_plugin_comment ol#comments li div.infos a:before{
+	color: #aaa;
+	content: "\f014";
+	display: block;
+    font: normal normal normal 19px/19px FontAwesome;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+body#body_plugin_comment ol#comments li:hover div.infos a:before{
+	color: #777;
+}
+body#body_plugin_comment ol#comments li div.infos a:hover:before{
+	color: #dd0000;
+}
+body#body_plugin_comment ol#comments li div.infos a:first-child:before{
+	content: "\f040";
+}
+body#body_plugin_comment ol#comments li div.infos a:first-child:hover:before{
+	color: #6eb4b4;
+}
+body#body_plugin_comment ol#comments li.moderate div.infos a[href*="/approve/"]:before{
+	content: "\f05d";
+}
+body#body_plugin_comment ol#comments li.moderate div.infos a[href*="/approve/"]:hover:before{
+	color: #78af19;
+}
+body#body_plugin_comment ol#comments li.moderate div.infos a[href*="/unapprove/"]:before{
+	content: "\f05c";
+}
+body#body_plugin_comment ol#comments li.moderate div.infos a[href*="/unapprove/"]:hover:before{
+	color: #dd0000;
+}
+body#body_plugin_comment .pagination{
+	width: auto;
+	height: 30px;
+	margin: 0 auto;
+	padding: 0;
+	display: block;
+	text-align: center;
+}
+body#body_plugin_comment .pagination span,
+body#body_plugin_comment .pagination a{
+	color: #777;
+	width: auto;
+	min-width: 30px;
+	height: 30px;
+	margin: 0 3px;
+	padding: 0 10px;
+	display: inline-block;
+	font-weight: normal;
+	line-height: 28px;
+	border: 1px solid #d0d0d0;
+	background-color: #fff;
+	border-radius: 2px;
+	-moz-border-radius: 2px;
+	-webkit-border-radius: 2px;
+	box-shadow: 0 1px 1px 0 #dfdfdf;
+	-moz-box-shadow: 0 1px 1px 0 #dfdfdf;
+	-webkit-box-shadow: 0 1px 1px 0 #dfdfdf;
+}
+body#body_plugin_comment .pagination span.disabled{
+	color: rgba(255, 255, 255, 0.75);
+	cursor: default;
+	border-color: #555;
+	text-shadow: none;
+	background-color: #555;
+	box-shadow: none;
+	-moz-box-shadow: none;
+	-webkit-box-shadow: none;
+}
+body#body_plugin_comment .pagination span.current{
+	color: rgba(255, 255, 255, 0.75);
+	cursor: default;
+	text-shadow: none;
+	border-color: #e65a32;
+	background-color: #e65a32;
+	box-shadow: none;
+	-moz-box-shadow: none;
+	-webkit-box-shadow: none;
+}
+body#body_plugin_comment .pagination a:hover{
+	border: 1px solid #c0c0c0;
+	box-shadow: 0 1px 1px 0 #d0d0d0;
+	-moz-box-shadow: 0 1px 1px 0 #d0d0d0;
+	-webkit-box-shadow: 0 1px 1px 0 #d0d0d0;
+}
+body#body_plugin_comment .pagination a{
+	margin: 0 3px 0 0px;
+}
+/* @end COMMENTS */
+ 
+/* @start DOCUMENTATION */
+#mainTabs ul li#backup_restore-plugin a:before{
+	content: "\f1c0";
+}
+body#body_plugin_backup_restore #sidebar p.button a[href$="documentation"]:before{
+	content: "\f02d";
+	font-size: 19px;
+}
+body#body_plugin_backup_restore #sidebar p.button a[href$="backup"]:before{
+	content: "\f019";
+}
+body#body_plugin_backup_restore #sidebar p.button a[href$="restore"]:before{
+	content: "\f093";
+}
+body#body_plugin_backup_restore #sidebar p.button a[href$="settings"]:before{
+	content: "\f013";
+}
+/* @end DOCUMENTATION */
+
+/* @start FILE MANAGER */
+#mainTabs ul li#file_manager-plugin a:before{
+	content: "\f07c";
+}
+body#body_plugin_file_manager #sidebar p.button a[href="#create-file-popup"]:before{
+	content: "\f15b";
+}
+body#body_plugin_file_manager #sidebar p.button a[href="#create-directory-popup"]:before{
+	content: "\f07b";
+}
+body#body_plugin_file_manager #sidebar p.button a[href="#upload-file-popup"]:before{
+	content: "\f093";
+}
+body#body_plugin_file_manager #content h1+img{
+	max-width: 95%;
+	margin: 20px auto 0 auto;
+	padding: 5px;
+	display: block;
+	border: 1px solid #cacaca;
+	background-color: #ececec;
+}
+body#body_plugin_file_manager div.form-area p.content{
+	text-align: right;
+}
+body#body_plugin_file_manager div.form-area p.content label{
+	margin: 0 5px 0 0;
+}
+body#body_plugin_file_manager div.form-area p.content textarea{
+	margin: 10px 0 0 0;
+}
+body#body_plugin_file_manager table#files-list td:first-child img{
+	display: none;
+}
+body#body_plugin_file_manager table#files-list tr.odd:hover td:first-child a,
+body#body_plugin_file_manager table#files-list tr.even:hover td:first-child a{
+	color: #777 !important;
+}
+body#body_plugin_file_manager table#files-list tr.odd td:first-child a:hover,
+body#body_plugin_file_manager table#files-list tr.even td:first-child a:hover,
+body#body_plugin_file_manager table#files-list tr.odd td:first-child a:hover:before,
+body#body_plugin_file_manager table#files-list tr.even td:first-child a:hover:before{
+	color: #333 !important;
+}
+body#body_plugin_file_manager table#files-list td:first-child a:before{
+	width: 15px;
+	margin: 0 5px 0 0;
+	padding: 0;
+	display: inline-block;
+	content: "\f016";
+    font: normal normal normal 14px/16px FontAwesome;
+	text-align: left;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+	vertical-align: top;
+}
+body#body_plugin_file_manager table#files-list td:first-child img[src$="file-folder-16.png"]+a:before{
+	content: "\f114";
+}
+body#body_plugin_file_manager table#files-list td:first-child img[src$="file-folder-16.png"]+a:hover:before{
+	content: "\f115";
+}
+body#body_plugin_file_manager table#files-list tr td:first-child a[href$=".7z"]:before,
+body#body_plugin_file_manager table#files-list tr td:first-child a[href$=".bz"]:before,
+body#body_plugin_file_manager table#files-list tr td:first-child a[href$=".bzip"]:before,
+body#body_plugin_file_manager table#files-list tr td:first-child a[href$=".bz2"]:before,
+body#body_plugin_file_manager table#files-list tr td:first-child a[href$=".bzip2"]:before,
+body#body_plugin_file_manager table#files-list tr td:first-child a[href$=".gz"]:before,
+body#body_plugin_file_manager table#files-list tr td:first-child a[href$=".gzip"]:before,
+body#body_plugin_file_manager table#files-list tr td:first-child a[href$=".iso"]:before,
+body#body_plugin_file_manager table#files-list tr td:first-child a[href$=".rar"]:before,
+body#body_plugin_file_manager table#files-list tr td:first-child a[href$=".tar"]:before,
+body#body_plugin_file_manager table#files-list tr td:first-child a[href$=".zip"]:before{
+	content: "\f1c6";
+}
+body#body_plugin_file_manager table#files-list tr td:first-child a[href$=".gif"]:before,
+body#body_plugin_file_manager table#files-list tr td:first-child a[href$=".ico"]:before,
+body#body_plugin_file_manager table#files-list tr td:first-child a[href$=".jpg"]:before,
+body#body_plugin_file_manager table#files-list tr td:first-child a[href$=".jpeg"]:before,
+body#body_plugin_file_manager table#files-list tr td:first-child a[href$=".png"]:before,
+body#body_plugin_file_manager table#files-list tr td:first-child a[href$=".svg"]:before,
+body#body_plugin_file_manager table#files-list tr td:first-child a[href$=".GIF"]:before,
+body#body_plugin_file_manager table#files-list tr td:first-child a[href$=".ICO"]:before,
+body#body_plugin_file_manager table#files-list tr td:first-child a[href$=".JPG"]:before,
+body#body_plugin_file_manager table#files-list tr td:first-child a[href$=".JPEG"]:before,
+body#body_plugin_file_manager table#files-list tr td:first-child a[href$=".PNG"]:before,
+body#body_plugin_file_manager table#files-list tr td:first-child a[href$=".SVG"]:before{
+	content: "\f1c5";
+}
+body#body_plugin_file_manager table#files-list tr td:first-child a[href$=".aac"]:before,
+body#body_plugin_file_manager table#files-list tr td:first-child a[href$=".flac"]:before,
+body#body_plugin_file_manager table#files-list tr td:first-child a[href$=".mp3"]:before,
+body#body_plugin_file_manager table#files-list tr td:first-child a[href$=".ogg"]:before,
+body#body_plugin_file_manager table#files-list tr td:first-child a[href$=".rm"]:before,
+body#body_plugin_file_manager table#files-list tr td:first-child a[href$=".wav"]:before,
+body#body_plugin_file_manager table#files-list tr td:first-child a[href$=".wma"]:before{
+	content: "\f1c7";
+}
+body#body_plugin_file_manager table#files-list tr td:first-child a[href$=".avi"]:before,
+body#body_plugin_file_manager table#files-list tr td:first-child a[href$=".flv"]:before,
+body#body_plugin_file_manager table#files-list tr td:first-child a[href$=".mpg"]:before,
+body#body_plugin_file_manager table#files-list tr td:first-child a[href$=".mkv"]:before,
+body#body_plugin_file_manager table#files-list tr td:first-child a[href$=".mov"]:before,
+body#body_plugin_file_manager table#files-list tr td:first-child a[href$=".mp4"]:before,
+body#body_plugin_file_manager table#files-list tr td:first-child a[href$=".rm"]:before,
+body#body_plugin_file_manager table#files-list tr td:first-child a[href$=".swf"]:before,
+body#body_plugin_file_manager table#files-list tr td:first-child a[href$=".wmv"]:before{
+	content: "\f1c8";
+}
+body#body_plugin_file_manager table#files-list tr td:first-child a[href$=".css"]:before,
+body#body_plugin_file_manager table#files-list tr td:first-child a[href*=".htm"]:before,
+body#body_plugin_file_manager table#files-list tr td:first-child a[href*=".html"]:before,
+body#body_plugin_file_manager table#files-list tr td:first-child a[href$=".js"]:before,
+body#body_plugin_file_manager table#files-list tr td:first-child a[href$=".ini"]:before,
+body#body_plugin_file_manager table#files-list tr td:first-child a[href$=".php"]:before,
+body#body_plugin_file_manager table#files-list tr td:first-child a[href*=".xml"]:before{
+	content: "\f1c9";
+}
+body#body_plugin_file_manager table#files-list tr td:first-child a[href$=".doc"]:before,
+body#body_plugin_file_manager table#files-list tr td:first-child a[href$=".docx"]:before,
+body#body_plugin_file_manager table#files-list tr td:first-child a[href$=".rtf"]:before,
+body#body_plugin_file_manager table#files-list tr td:first-child a[href$=".txt"]:before{
+	content: "\f0f6";
+}
+body#body_plugin_file_manager table#files-list td code a{
+	margin: 0;
+	padding: 0;
+}
+body#body_plugin_file_manager table#files-list td:first-child+td+td+td+td{
+	text-align: center;
+}
+body#body_plugin_file_manager table#files-list td:first-child+td+td+td+td a{
+	color: #aaa;
+	display: inline-block;
+}
+body#body_plugin_file_manager table#files-list tr.odd:hover a,
+body#body_plugin_file_manager table#files-list tr.event:hover a{
+	color: #777;
+}
+body#body_plugin_file_manager table#files-list td:first-child+td+td+td+td a{
+	margin: 0 5px;
+}
+body#body_plugin_file_manager table#files-list td:first-child+td+td+td+td a:before{
+    font: normal normal normal 14px/16px FontAwesome;
+	display: block;
+	text-align: left;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+	vertical-align: top;
+}
+body#body_plugin_file_manager table#files-list  td:first-child+td+td+td+td a:before{
+	content: "\f014";
+}
+body#body_plugin_file_manager table#files-list tr.odd  td:first-child+td+td+td+td a:hover:before,
+body#body_plugin_file_manager table#files-list tr.even  td:first-child+td+td+td+td a:hover:before{
+	color: #dd0000 !important;
+}
+body#body_plugin_file_manager table#files-list td:first-child+td+td+td+td a:first-child:before{
+	content: "\f040";
+}
+body#body_plugin_file_manager table#files-list tr.odd  td:first-child+td+td+td+td a:first-child:hover:before,
+body#body_plugin_file_manager table#files-list tr.even td:first-child+td+td+td+td a:first-child:hover:before{
+	color: #e65a32 !important;
+}
+body#body_plugin_file_manager table#files-list  td:first-child+td+td+td+td a img{
+	display: none;
+}
+/* @end FILE MANAGER */

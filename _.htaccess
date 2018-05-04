@@ -1,0 +1,16 @@
+Options -Indexes +FollowSymLinks
+
+##
+##  REWRITE RULES
+##
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # The subdirectory which contains the Fox CMS, or just /
+    RewriteBase /foxcms/
+
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_FILENAME} !-l
+    RewriteRule ^(.*)$ index.php?FOX=$1 [L,QSA]
+</IfModule>

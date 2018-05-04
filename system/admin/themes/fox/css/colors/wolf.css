@@ -1,0 +1,155 @@
+/*
+ |	Fox Theme
+ |	@file		./css/colors/wolf.css
+ |	@author		SamBrishes <pytes@gmx.net>
+ |	@version	0.2.2 [0.2.0] - Beta
+ |
+ |	@require	Wolf CMS 0.8.3, CSS3-capable Browser
+ */
+/*
+ |	COLOR SCHEME
+ |
+ |	MAIN BROWN		#B49664		rgb(180, 150, 100)
+ |	YELLOW			#F0DC64		rgb(240, 220, 100)
+ |	UNKNOWN			#AA786E		rgb(170, 120, 110)
+ |	GREEN			#869979		rgb(134, 153, 121)
+ */
+ 
+/* @start LOGIN SCREEN */
+body{
+	background: #b49664;
+	background: -moz-radial-gradient(center, ellipse cover,  #b49664 0%, #6c5a3c 100%);
+	background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%,#b49664), color-stop(100%,#6c5a3c));
+	background: -webkit-radial-gradient(center, ellipse cover,  #b49664 0%,#6c5a3c 100%);
+	background: -o-radial-gradient(center, ellipse cover,  #b49664 0%,#6c5a3c 100%);
+	background: -ms-radial-gradient(center, ellipse cover,  #b49664 0%,#6c5a3c 100%);
+	background: radial-gradient(ellipse at center,  #b49664 0%,#6c5a3c 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b49664', endColorstr='#6c5a3c',GradientType=1 );
+}
+#dialog form, #info, #error, #success{
+	border: 1px solid #a2875a;
+}
+/* @end LOGIN SCREEN */
+
+/* @start GENERAL */
+a{
+	color: #a2875a;
+}
+a:hover{
+	color: #869979;
+}
+#snippet_name:focus, #snippet_name.focus,
+input[type="text"]:focus, input[type="password"]:focus, input[type="email"]:focus,
+input[type="search"]:focus, input[type="number"]:focus, select:focus, textarea:focus, #content textarea:focus,
+input[type="text"].focus, input[type="password"].focus, input[type="email"].focus,
+input[type="search"].focus, input[type="number"].focus, select.focus, textarea.focus, #content textarea.focus{
+	border: 1px solid #869979;
+	box-shadow: 0 1px 1px 0 rgba(134, 153, 121, 0.5);
+	-moz-box-shadow: 0 1px 1px 0 rgba(134, 153, 121, 0.5);
+	-webkit-box-shadow: 0 1px 1px 0 rgba(134, 153, 121, 0.5);
+}
+input[type="submit"], input[type="submit"]:focus, input[type="submit"].focus, 
+input[type="button"], input[type="button"]:focus, input[type="button"].focus,
+.button, .button:focus, .button.focus{
+	border-color: #907850;
+	background-color: #B49664;
+}
+input[type="submit"]:hover, input[type="submit"].hover, 
+input[type="button"]:hover, input[type="button"].hover, 
+.button:hover, .button.hover{
+	border-color: #7d6946;
+	background-color: #907850;
+}
+input[type="submit"]:active, input[type="submit"].active, 
+input[type="button"]:active, input[type="button"].active, 
+.button:active, .button.active{
+	border-color: #7d6946;
+	background: #7d6946;
+}
+/* @end GENERAL */
+
+/* @start ELEMENTS */
+#header{
+	background-color: #B49664;
+}
+#mainTabs ul li.plugin a.current, #mainTabs ul li.right a.current,
+#mainTabs ul li.plugin a.current:hover, #mainTabs ul li.right a.current:hover{
+	color: #F0DC64;
+}
+#sidebar-wrapper #sidebar p.button a,
+#sidebar-wrapper #sidebar p.button a:before{
+	text-shadow: none;
+}
+#sidebar-wrapper #sidebar p.button a:hover:before{
+	color: #AA786E;
+}
+div#footer p#site-links a{
+	color: #fff;
+	border-color: #7d6946;
+	background-color: #907850;
+	box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.15);
+	-moz-box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.15);
+	-webkit-box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.15);
+}
+div#footer p#site-links a:before{
+	color: rgba(255, 255, 255, 0.75);
+	background-color: #a2875a;
+}
+#footer p:first-child a, #footer p.stats a{
+	color: #a2875a;
+}
+/* @end ELEMENTS */
+
+/* @start LISTS */
+div#site-map-def div #toggle_reorder:hover,
+div#site-map-def div #reorder-toggle:hover{
+	color: #B49664;
+}
+ul#site-map-root li.node.level-0 div.page span.title,
+ul#site-map-root li.node.level-0 div.page a span.title{
+	color: #B49664;
+}
+ul#site-map-root li.node.level-0 div.view-page a:hover:before,
+ul#site-map li.level-1 div.content-children div.view-page a:hover:before{
+	color: #B49664 !important;
+}
+ul#site-map li.level-1 div.content-children div.page span.w1 a:hover span.title,
+ul#site-map li.level-1 div.content-children div.page span.w1 a:visited:hover span.title{
+	color: #B49664;
+}
+table.index tr td.plugin h4 a{
+	color: #B49664;
+}
+table.index tr td.plugin h4 a:hover{
+	color: #869979;
+}
+.index .node a:hover, .index .even a:hover, .index .odd a:hover{
+	color: #B49664 !important;
+}
+.index .node a:hover, .index .node a:visited:hover{
+	color: #B49664;
+}
+/* @end LISTS */
+
+/* @start FORMS */
+ul.tabNavigation li.tab a:hover{
+	color: #B49664;
+}
+.dpTable tr.dpTitleTR td.dpButtonTD button:before{
+	color: #B49664;
+}
+.dpTable tr.dpTR td.dpTDHover{
+	color: #B49664;
+}
+.dpTable tr.dpTR td.dpDayHighlightTD,
+.dpTable tr.dpTR td .dpDayHighlight{
+	color: #B49664;
+}
+/* @end FORMS */
+
+/* @start PLUGINS */
+body#body_plugin_comment .pagination span.current{
+	border-color: #869979;
+	background-color: #869979;
+}
+/* @end PLUGINS */

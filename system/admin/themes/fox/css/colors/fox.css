@@ -1,0 +1,137 @@
+/*
+ |	Fox Theme
+ |	@file		./css/colors/fox.css
+ |	@author		SamBrishes <pytes@gmx.net>
+ |	@version	0.2.2 [0.2.0] - Beta
+ |
+ |	@require	Wolf CMS 0.8.3, CSS3-capable Browser
+ */
+/*
+ |	COLOR SCHEME
+ |
+ |	MAIN ORANGE		#E65A32		rgb(230, 90, 50)
+ |	YELLOW			#F0AA3C		rgb(240, 170, 60)
+ |	DARK BROWN		#B84828		rgb(184,72,40)
+ */
+ 
+/* @start LOGIN SCREEN */
+body{
+	background: #e65a32;
+	background: -moz-radial-gradient(center, ellipse cover,  #e65a32 0%, #a13e23 100%);
+	background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%,#e65a32), color-stop(100%,#a13e23));
+	background: -webkit-radial-gradient(center, ellipse cover,  #e65a32 0%,#a13e23 100%);
+	background: -o-radial-gradient(center, ellipse cover,  #e65a32 0%,#a13e23 100%);
+	background: -ms-radial-gradient(center, ellipse cover,  #e65a32 0%,#a13e23 100%);
+	background: radial-gradient(ellipse at center,  #e65a32 0%,#a13e23 100%);
+}
+#dialog form, #info, #error, #success{
+	border: 1px solid #cf512d;
+}
+/* @end LOGIN SCREEN */
+
+/* @start GENERAL */
+a{
+	color: #E65A32;
+}
+a:hover{
+	color: #F0AA3C;
+}
+#snippet_name:focus, #snippet_name.focus,
+input[type="text"]:focus, input[type="password"]:focus, input[type="email"]:focus,
+input[type="search"]:focus, input[type="number"]:focus, select:focus, textarea:focus, #content textarea:focus,
+input[type="text"].focus, input[type="password"].focus, input[type="email"].focus,
+input[type="search"].focus, input[type="number"].focus, select.focus, textarea.focus, #content textarea.focus{
+	border: 1px solid #e65a32;
+	box-shadow: 0 1px 1px 0 rgba(230, 90, 50, 0.5);
+	-moz-box-shadow: 0 1px 1px 0 rgba(230, 90, 50, 0.5);
+	-webkit-box-shadow: 0 1px 1px 0 rgba(230, 90, 50, 0.5);
+}
+input[type="submit"], input[type="submit"]:focus, input[type="submit"].focus, 
+input[type="button"], input[type="button"]:focus, input[type="button"].focus,
+.button, .button:focus, .button.focus{
+	border-color: #b84828;
+	background-color: #e65a32;
+}
+input[type="submit"]:hover, input[type="submit"].hover, 
+input[type="button"]:hover, input[type="button"].hover, 
+.button:hover, .button.hover{
+	border-color: #a13e23;
+	background-color: #cf512d;
+}
+input[type="submit"]:active, input[type="submit"].active, 
+input[type="button"]:active, input[type="button"].active, 
+.button:active, .button.active{
+	border-color: #a13e23;
+	background: #a13e23;
+}
+/* @end GENERAL */
+
+/* @start ELEMENTS */
+#header{
+	background-color: #E65A32;
+}
+#mainTabs ul li.plugin a.current, #mainTabs ul li.right a.current,
+#mainTabs ul li.plugin a.current:hover, #mainTabs ul li.right a.current:hover{
+	color: #F0AA3C;
+}
+#sidebar-wrapper #sidebar p.button a:hover:before{
+	color: #E65A32;
+}
+#footer p:first-child a, #footer p.stats a{
+	color: #E65A32;
+}
+/* @end ELEMENTS */
+
+/* @start LISTS */
+div#site-map-def div #toggle_reorder:hover,
+div#site-map-def div #reorder-toggle:hover{
+	color: #E65A32;
+}
+ul#site-map-root li.node.level-0 div.page span.title,
+ul#site-map-root li.node.level-0 div.page a span.title{
+	color: #E65A32;
+}
+ul#site-map-root li.node.level-0 div.view-page a:hover:before,
+ul#site-map li.level-1 div.content-children div.view-page a:hover:before{
+	color: #E65A32 !important;
+}
+ul#site-map li.level-1 div.content-children div.page span.w1 a:hover span.title,
+ul#site-map li.level-1 div.content-children div.page span.w1 a:visited:hover span.title{
+	color: #E65A32;
+}
+table.index tr td.plugin h4 a{
+	color: #E65A32;
+}
+table.index tr td.plugin h4 a:hover{
+	color: #F0AA3C;
+}
+.index .node a:hover, .index .even a:hover, .index .odd a:hover{
+	color: #E65A32 !important;
+}
+.index .node a:hover, .index .node a:visited:hover{
+	color: #E65A32;
+}
+/* @end LISTS */
+
+/* @start FORMS */
+ul.tabNavigation li.tab a:hover{
+	color: #E65A32;
+}
+.dpTable tr.dpTitleTR td.dpButtonTD button:before{
+	color: #E65A32;
+}
+.dpTable tr.dpTR td.dpTDHover{
+	color: #E65A32;
+}
+.dpTable tr.dpTR td.dpDayHighlightTD,
+.dpTable tr.dpTR td .dpDayHighlight{
+	color: #E65A32;
+}
+/* @end FORMS */
+
+/* @start PLUGINS */
+body#body_plugin_comment .pagination span.current{
+	border-color: #e65a32;
+	background-color: #e65a32;
+}
+/* @end PLUGINS */

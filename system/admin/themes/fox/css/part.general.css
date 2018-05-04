@@ -1,0 +1,231 @@
+/*
+ |	Fox Theme
+ |	@file		./css/part.general.css
+ |	@author		SamBrishes <pytes@gmx.net>
+ |	@version	0.2.2 [0.2.0] - Beta
+ |
+ |	@require	Wolf CMS 0.8.3, CSS3-capable Browser
+ */
+ 
+/* @start GENERAL STUFF */
+*, *:before, *:after{
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+}
+html, body{
+	color: #333;
+	margin: 0;
+	padding: 0;
+	display: block;
+	font-size: 14px;
+	font-family: "Open Sans", Calibri, Arial, sans-serif;
+}
+a{
+	color: #e65a32;
+	text-decoration: none;
+}
+a:hover{
+	color: #f0aa3c;
+	text-decoration: none;
+}
+fieldset{
+	margin: 10px 0;
+	padding: 15px !important;
+	border: 1px solid #d0d0d0;
+}
+fieldset legend{
+	color: #999;
+	font-size: 14px;
+	line-height: 20px;
+	font-weight: normal;
+}
+fieldset table.fieldset{
+	margin: 0;
+}
+.clear{
+	clear: both;
+	color: transparent;
+	font-size: 0; 
+}
+.warning{
+	color: #dd0000;
+}
+/* @end GENERAL STUFF */
+
+/* @start FORM ELEMENTS */
+input, select, textarea{
+	outline: none !important;
+}
+input::-moz-focus-inner{ 
+	border: 0; 
+	padding: 0;  
+}
+input[type="text"], input[type="password"], input[type="email"], #snippet_name,  
+input[type="search"], input[type="number"], select, textarea, #content textarea{
+	color: #555;
+	width: 250px;
+	margin: 0;
+	padding: 5px 10px;
+	display: inline-block;
+	font-size: 14px;
+	line-height: 20px;
+	font-family: "Open Sans", Calibri, Arial, sans-serif;
+	border: 1px solid #d0d0d0;
+	outline: none;
+	background: #fff;
+	-moz-box-sizing: border-box;
+	box-shadow: 0 1px 1px 0 #dfdfdf;
+	-moz-box-shadow: 0 1px 1px 0 #dfdfdf;
+	-webkit-box-shadow: 0 1px 1px 0 #dfdfdf;
+}
+select{
+	width: auto;
+	height: 32px;
+	padding: 4px 10px;
+}
+textarea, #content textarea{
+	width: 100%;
+	padding: 10px;
+	min-width: 250px;
+	min-height: 150px;
+}
+#snippet_name:hover, #snippet_name.hover,
+input[type="text"]:hover, input[type="password"]:hover, input[type="email"]:hover, 
+input[type="search"]:hover, input[type="number"]:hover, select:hover, textarea:hover, #content textarea:hover,
+input[type="text"].hover, input[type="password"].hover, input[type="email"].hover,
+input[type="search"].hover, input[type="number"].hover, select.hover, textarea.hover, #content textarea.hover{
+	border: 1px solid #c0c0c0;
+	background: #fff;
+	box-shadow: 0 1px 1px 0 #cfcfcf;
+	-moz-box-shadow: 0 1px 1px 0 #cfcfcf;
+	-webkit-box-shadow: 0 1px 1px 0 #cfcfcf;
+}
+#snippet_name:focus, #snippet_name.focus,
+input[type="text"]:focus, input[type="password"]:focus, input[type="email"]:focus,
+input[type="search"]:focus, input[type="number"]:focus, select:focus, textarea:focus, #content textarea:focus,
+input[type="text"].focus, input[type="password"].focus, input[type="email"].focus,
+input[type="search"].focus, input[type="number"].focus, select.focus, textarea.focus, #content textarea.focus{
+	border: 1px solid #e65a32;
+	background: #fff;
+	box-shadow: 0 1px 1px 0 rgba(230, 90, 50, 0.5);
+	-moz-box-shadow: 0 1px 1px 0 rgba(230, 90, 50, 0.5);
+	-webkit-box-shadow: 0 1px 1px 0 rgba(230, 90, 50, 0.5);
+}
+#snippet_name:disabled, #snippet_name.disabled, #snippet_name[readonly], #snippet_name.readonly,
+input[type="text"]:disabled, input[type="password"]:disabled, input[type="email"]:disabled,
+input[type="search"]:disabled, input[type="number"]:disabled, select:disabled, textarea:disabled, #content textarea:disabled,
+input[type="text"].disabled, input[type="password"].disabled, input[type="email"].disabled,
+input[type="search"].disabled, input[type="number"].disabled, select.disabled, textarea.disabled, #content textarea.disabled,
+input[type="text"][readonly], input[type="password"][readonly], input[type="email"][readonly],
+input[type="search"][readonly], input[type="number"][readonly], select[readonly], textarea[readonly], #content textarea[readonly],
+input[type="text"].readonly, input[type="password"].readonly, input[type="email"].readonly,
+input[type="search"].readonly, input[type="number"].readonly, select.readonly, textarea.readonly, #content textarea.readonly{
+	color: #777;
+	border-color: #aaa;
+	background-color: #eaeaea;
+	box-shadow: 0 1px 1px 0 #dfdfdf;
+	-moz-box-shadow: 0 1px 1px 0 #dfdfdf;
+	-webkit-box-shadow: 0 1px 1px 0 #dfdfdf;
+}
+input[type="submit"], input[type="reset"], input[type="button"], button, .button, p.buttons a{
+	width: auto;
+	cursor: pointer;
+	height: 28px;
+	margin: 0;
+	padding: 0 15px;
+	display: inline-block;
+	overflow: visible;
+	font-size: 14px;
+	text-shadow: -1px -1px 0 rgba(0, 0, 0, 0.2);
+	line-height: 22px;
+	font-family: "Open Sans", Calibri, Arial, sans-serif;
+	border-width: 1px;
+	border-style: solid;
+	border-color: transparent;
+	outline: none;
+	vertical-align: top;
+	background: transparent;
+	border-radius: 3px;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+}
+input[type="submit"], input[type="submit"]:focus, input[type="submit"].focus, 
+input[type="button"], input[type="button"]:focus, input[type="button"].focus,
+.button, .button:focus, .button.focus{
+	color: #fff;
+	outline: none !important;
+	border-color: #b84828;
+	background-color: #e65a32;
+	box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.25), inset 0 1px 1px 0 rgba(255, 255, 255, 0.25);
+	-moz-box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.25), inset 0 1px 1px 0 rgba(255, 255, 255, 0.25);
+	-webkit-box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.25), inset 0 1px 1px 0 rgba(255, 255, 255, 0.25);
+}
+input[type="submit"]:hover, input[type="submit"].hover, 
+input[type="button"]:hover, input[type="button"].hover, 
+.button:hover, .button.hover{
+	color: #fff;
+	border-color: #a13e23;
+	background-color: #cf512d;
+	box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.35), inset 0 1px 1px 0 rgba(255, 255, 255, 0.35);
+	-moz-box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.35), inset 0 1px 1px 0 rgba(255, 255, 255, 0.35);
+	-webkit-box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.35), inset 0 1px 1px 0 rgba(255, 255, 255, 0.35);
+}
+input[type="submit"]:active, input[type="submit"].active, 
+input[type="button"]:active, input[type="button"].active, 
+.button:active, .button.active{
+	color: rgba(255, 255, 255, 0.65);
+	border-color: #a13e23;
+	background: #a13e23;
+	box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.35);
+	-moz-box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.35);
+	-webkit-box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.35);
+}
+input[type="reset"], input[type="reset"]:focus, input[type="reset"].focus, 
+button, button:focus, button.focus, p.buttons a, p.buttons a:focus, p.buttons a.focus, 
+.button.secondary, .button.secondary:focus, .button.secondary.focus{
+	color: #555;
+	text-shadow: none;
+	border-color: #d0d0d0;
+	background-color: #fff;
+	box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.15);
+	-moz-box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.15);
+	-webkit-box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.15);
+}
+input[type="reset"]:hover, input[type="reset"].hover, 
+button:hover, button.hover, p.buttons a:hover, p.buttons a.hover, 
+.button.secondary:hover, .button.secondary.hover{
+	color: #555;
+	text-shadow: none;
+	border-color: #c0c0c0;
+	background-color: #eaeaea;
+	box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.2);
+	-moz-box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.2);
+	-webkit-box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.2);
+}
+input[type="reset"]:active, input[type="reset"].active, 
+button:active, button.active, p.buttons a:active, p.buttons a.active, 
+.button.secondary:active, .button.secondary.active{
+	color: #888;
+	text-shadow: none;
+	border-color: #b0b0b0;
+	background-color: #eaeaea;
+	box-shadow: inset 0 1px 1px 0 rgba(0, 0, 0, 0.25);
+	-moz-box-shadow: inset 0 1px 1px 0 rgba(0, 0, 0, 0.25);
+	-webkit-box-shadow: inset 0 1px 1px 0 rgba(0, 0, 0, 0.25);
+}
+input[type="submit"]:disabled, input[type="submit"].disabled, 
+input[type="reset"]:disabled, input[type="reset"].disabled, 
+input[type="button"]:disabled, input[type="button"].disabled, 
+button:disabled, button.disabled, p.buttons a:disabled, p.buttons a.disabled, 
+.button:disabled, .button.disabled{
+	color: rgba(255, 255, 255, 0.75);
+	cursor: default;
+	border-color: #555;
+	text-shadow: none;
+	background-color: #555;
+	box-shadow: none;
+	-moz-box-shadow: none;
+	-webkit-box-shadow: none;
+}
+/* @end FORM ELEMENTS */

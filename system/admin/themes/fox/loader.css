@@ -1,0 +1,36 @@
+/*
+ |	Fox Theme
+ |	@file		./loader.css
+ |	@author		SamBrishes <pytes@gmx.net>
+ |	@version	0.2.2 [0.2.0] - Beta
+ |
+ |	@require	Wolf CMS 0.8.3, CSS3-capable Browser
+ */
+	/*
+	 |	LOAD (ICON) FONTS
+	 */
+	@import url("https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic");
+	@import url("css/font-awesome.min.css");
+	
+	/*
+	 |	LOAD DESIGN ELEMENTS
+	 */
+	@import url("css/part.general.css");
+	@import url("css/part.elements.css");
+	@import url("css/part.lists.css");
+	@import url("css/part.forms.css");
+	@import url("css/part.plugins.css");
+	
+	/*
+	 |	CHANGE ADMIN COLOR SCHEME
+	 |	Change the content of the following @import rule
+	 |	into the desired color scheme value: 
+	 |
+	 |	Orange Scheme		"css/colors/fox.css"
+	 |	Green Scheme		"css/colors/frog.css"
+	 |	Blue Scheme			"css/colors/penguin.css"
+	 |	Brown Scheme		"css/colors/wolf.css"
+	 |
+	 |	Autumn Scheme		"css/colors/autumn.css"
+	 */
+	@import url("css/colors/fox.css");

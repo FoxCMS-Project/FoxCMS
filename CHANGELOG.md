@@ -1,0 +1,202 @@
+CHANGELOG
+=========
+
+Version 0.8.4 (Alpha)
+---------------------
+**The Fox CMS is a fork of the Wolf CMS**
+
+### Changes as 'FoxCMS'
+-   Add: The new `defaults.php` constants list file.
+-   Add: The new init process through `init.php` as well as the new `Fox CMS` class.
+-   Add: The new `Event` class, which replaced the `Observer` class completely.
+-   Add: A complete new `cron` table, call and method.
+-   Add: **General Function** The new `serializer()`, `unserializer()`, `readable()` functions.
+-   Add: **General Function** The new `parse_size()`, `compare()` functions.
+-   Add: **General Function** The new `upload_size()`, `upload_number()` functions.
+-   Add: **General Function** The new `value()`, `selected()`, `checked()` form functions.
+-   Add: **General Function** The new `escape()` function replaces `xssClean()`.
+-   Add: **General Function** The new `url_get_contents()` function which prefers cURL instead of `file_get_contents()`.
+-   Add: **General Function** The new `register_*()` and `register_*()` functions for further development.
+-   Add: **General Function** The new `root_to_html()` and `path_to_html()` convert functions.
+-   Add: **General Function** The `get_title()`, `get_keywords()`, `get_description()` Theme-Helper function.
+-   Add: **General Function** The `get_theme_path()`, `get_theme_url()` Theme-Helper function.
+-   Add: **AuthUser** - A new cookie and session (token-based) validation / check to prevent Session / Cookie Hijacking.
+-   Add: **AuthUser** - The Blowfish password hashing / encryption method, instead of sha512!
+-   Add: **AutoLoader** - The new `loaded()` method, which checks class names as well as file paths.
+-   Add: **LayoutController** - The new `_store()` method handles now `_add()` and `_edit()`.
+-   Add: **Inflector** - The new `tableize()`, `minuscore()` and `classify()` alias methods.
+-   Add: **Inflector** - The new `$chars` delimiter parameter to customize the output.
+-   Add: **Page** - The new `datetime()` method, which uses `date()` instead of `strftime()`.
+-   Add: **Record** - The new `connect()` method initiated now the database.
+-   Add: **Record** - The new `prefix()` prepare table name static method.
+-   Add: **Record** - The new `table()` static method, which replaces `tableNameFromClassName()`.
+-   Add: **Record** - The new `getLastQuery()` and `quote()` static helper methods.
+-   Add: **Record** - The new `exists()` method to check if a table already exists.
+-   Add: **SnippetController** - The new `_store()` method handles now `_add()` and `_edit()`.
+-   Add: **UserController** - The new `_store()` method handles now `_add()` and `_edit()`.
+-   Update: The complete folder structure has been changed due to easify the migration.
+-   Update: The new Version of the ZIP helper Class ([Version 0.2.0](https://www.github.com/FoxCMS/ZIP)).
+-   Update: The new Version of the BigInteger helper class ([Version 1.0.3](https://pear.php.net/package/Math_BigInteger)).
+-   Update: Extract each class of the `Framework.php` file into a single file due to the new format standard.
+-   Update: Each HTML 4 DOCTYPE output has been replaced with the HTML 5 version `<!DOCTYPE html>`.
+-   Update: **General Function** The `remove_xss()` function has been completely changed.
+-   Update: **General Function** The `html_encode()` and` html_decode()` function uses now the `ENT_HTML5` and `ENT_IGNORE`, if available.
+-   Update: **General Function** The `get_url()` function has been remastered.
+-   Update: **AuthUser** - A more-secure password comparison way to prevent time-attacks.
+-   Update: **AuthUser** - A more-secure and more-random `genarateSalt()` method.
+-   Update: **AuthUser** - The `explodeCookie()` method does now ONLY crumble cookies (without to testing them).
+-   Update: **AuthUser** - Uses now the new `SESSION_KEY` and `COOKIE_KEY` constants instead of the static `wolf_auth_user`.
+-   Update: **AuthUser** - Uses now the new `COOKIE_HTTP` constant on the `setcookie()` function.
+-   Update: **AuthUser** - The `hasPermission()` method accepts now arrays next to comma-separated lists as first paramter.
+-   Update: **AuthUser** - The `hasPermission()` method accepts now a second parameter which configures the compare function.
+-   Update: **AutoLoader** - The new file structures "(class.|abstract.|interface.|trait.)class(-|\_)name.php" on the `addFolder()` method.
+-   Update: **AutoLoader** - Skip '^(func.|conf.)' and '(!.php)$' file names on the `addFolder()` method.
+-   Update: **AutoLoader** - The `addFolder()` method walks now through the folders instead of the `load()` method.
+-   Update: **Behavior** - The `add()` method checks now the file path instead the `get()` method.
+-   Update: **Behavior** - The `add()` and `remove()` methods returns now a boolean value.
+-   Update: **Behavior** - The `get()` method checks the class existence before instantiation.
+-   Update: **Controller** - Change the default of the `$exit` parameter within the `display()` method to false.
+-   Update: **Filter** - The `add()` method checks now the file path instead the `get()` method.
+-   Update: **Filter** - The `add()` and `remove()` methods returns now a boolean value.
+-   Update: **Filter** - The `get()` method checks the class existence before instantiation.
+-   Update: **Flash** - Changed the static `self::SESSION_KEY` into `SESSION_KEY . "_flash"`.
+-   Update: **Flash** - The `get()` method allows now a default value to return.
+-   Update: **Flash** - The `set()` method allows now an array as first parameter.
+-   Update: **Flash** - The `set()` method allows now a third parameter to choose the storage target.
+-   Update: **Flash** - The `clear()` method allows now with the first parameter to clear the class storage too.
+-   Update: **Flash** - The `setNow()` method is now just an alias for `set()`
+-   Update: **Permission** - The `findByName()` method allows now arrays too.
+-   Update: **Plugin** - The `addSetting()` method is now just an alias for `setAllSettings()`.
+-   Update: **Plugin** - Adapt all database requests to the new config table.
+-   Update: **Plugin** - Uses now `version_compare()` within `checkLatest()` to allow semantic versioning on plugins too.
+-   Update: **Page** - The class extends `Content` instead of `Node`.
+-   Update: **Page** - The complete `breadcrums()` and `tags()` methods has been rewritten.
+-   Update: **Record** - The single Record constants were separated into a separate class.
+-   Update: **Record** - The insert method has now the third parameter for prepared statements / values.
+-   Update: **Record** - The `setFromData()` method tries to detect the format and unserialize arrays.
+-   Update: **Record** - The `getColumns()` method filters variable names, which starts with an \_.
+-   Update: **Role** - The `findByName()` method allows now arrays too.
+-   Update: **Role** - The `hasPermission()` method accepts now arrays next to comma-separated lists as first paramter.
+-   Update: **Role** - The `hasPermission()` method accepts now a second parameter which configures the compare function.
+-   Update: **SecureToken** - The `$url` parameter has been turned into `$nonce` and will now be easy md5-hashed.
+-   Update: **SecureToken** - The `$user` parameter allows now true, false, the user ID, the username and the user object.
+-   Update: **SecureToken** - Remastered `generateToken()` and `validateToken()` methods.
+-   Update: **Setting** - Adapt the `init()` method to the new config table style.
+-   Update: **Setting** - The `getLanguages()` method is now just a alias for `I18n::getAvailableLanguages()`.
+-   Update: **Tag** - The `findByName()` method allows now arrays too.
+-   Update: **Tag** - The `getColumns()` method, because it was unnecessary.
+-   Update: **UserRole** - The `setRolesFor()` method uses now prepared statements for user and role id.
+-   Update: **UserRole** - The `setRolesFor()` method accepts now a user ID / USer object as first parameter.
+-   Update: **UserRole** - The `setRolesFor()` method accepts now a single ID / Role object or multiple as ARRAY as second parameter.
+-   Update: **UserRole** - The `setRolesFor()` method accepts now a third parameter, which controls the adding or replacing of the roles.
+-   Update: **UserPermission** - The `setPermissionsFor()` method uses now prepared statements for user and permission id.
+-   Update: **UserPermission** - The `setPermissionsFor()` method accepts now a user ID / User object as first parameter.
+-   Update: **UserPermission** - The `setPermissionsFor()` method accepts now a single ID / Permission object or multiple as ARRAY as second parameter.
+-   Update: **UserPermission** - The `setPermissionsFor()` method accepts now a third parameter, which controls the adding or replacing of the permissions.
+-   Remove: Each Frog-backward compatibility constant / variable.
+-   Remove: The `main.php` as well as the `Framework.php` files.
+-   Remove: JavaScript Focus first visible and enabled input field.
+-   Remove: **AuthUser** - The Pre 0.7.0 sha1 password hashing comparison.
+-   Remove: **AuthUser** - The `forceLogin()` method, because it's not really secure to allow non-password logins!
+-   Remove: **Layout** - The `findById()` method, because it's not clever to load the name instead of the id / username!
+-   Remove: **Page** - The `_loadTags()` method, because the new `tags()` method handles this now.
+-   Remove: **Page** - The `_getLayoutId()` method, because the new `_executeLayout()` method handles this now.
+-   Remove: **Page** - The `_inversedBreadcrumbs()` method, because the new `breadcrumbs()` method handles this now.
+-   Remove: **Snippet** - The `findById()` method, because it's not clever to load the name instead of the id / username!
+-   Remove: **User** - The `findById()` method, because it's not clever to load the name instead of the id / username!
+-   Bugfix: **Important** - Cross-Site Scripting (XSS) Vulnerability in Snippets / Layouts ([#673 @ BalvinderSingh23](https://github.com/wolfcms/wolfcms/issues/673)) & ([#667 @ Tanmay9511](https://github.com/wolfcms/wolfcms/issues/667))!
+-   Bugfix: **Important** - Cross Site Request Forgery ([#671 @ MrR3boot](https://github.com/wolfcms/wolfcms/issues/671))!
+-   Bugfix: **Important** - Open Redirection Vulnerability ([#670 @ MrR3boot](https://github.com/wolfcms/wolfcms/issues/670))!
+-   Bugfix: **Important** - Reflected Cross-Site-Scripting in FileManager ([#666 @ Tanmay9511](https://github.com/wolfcms/wolfcms/issues/666))!
+-   Bugfix: **AuthUser** - The `$is_logged_in` variable doesn't reset when `logout()` is called.
+-   Bugfix: **Post** - The `%e` character in `strftime()` isn't supported on windows platforms.
+-   Deprecated: The complete `Observer` class has marked as deprecated. Use the methods of the `Events` class instead!
+-   Deprecated: The `startsWith()` function has marked as deprecated due to the new format standard. Use `starts_with()` instead!
+-   Deprecated: The `endsWith()` function has marked as deprecated due to the new format standard. Use `ends_with()` instead!
+-   Deprecated: The `isWritable()` function has marked as deprecated due to the new format standard. Use `is_writable()` instead!
+-   Deprecated: The `get_request_method()` function has marked as deprecated due to the new format standard. Use `request_method()` instead!
+-   Deprecated: The `get_microtime()` function has marked as deprecated due to the new format standard. Use `microtime(true)` instead!
+-   Deprecated: The `fix_input_quotes()` function has marked as deprecated, because it's not necessary anymore.
+-   Deprecated: The `cleanXSS()` function has marked as deprecated, because it's not necessary anymore.
+-   Deprecated: The `cleanArrayXSS()` function has marked as deprecated due to the new format standard. Use `remove_xss()` instead!
+-   Deprecated: The `xssClean()` function has marked as deprecated due to the new format standard. Use `escape()` instead!
+-   Deprecated: The `jsEscape()` function has marked as deprecated due to the new format standard. Use `escape()` instead!
+-   Deprecated: The `pageNotFound()` function has marked as deprecated due to the new format standard. Use `page404()` instead!
+-   Deprecated: The `page_not_found()` function has marked as deprecated due to the new format standard. Use `page404()` instead!
+-   Deprecated: The `getContentFromUrl()` function has marked as deprecated due to the new format standard. Use `url_get_contents()` instead!
+-   Deprecated: The `explode_uri()` function has marked as deprecated due to the new format standard. Use `explode_path()` instead!
+-   Deprecated: The `find_page_by_slug()` function has marked as deprecated due to the new format standard. Use `Page:.findBySlug()` instead!
+-   Deprecated: The `Record::tableNameFromClassName()` method has marked as deprecated due to the new format standard. Use `Record::table()` instead!
+-   Deprecated: The `AuthUser::gerRecord()` method has marked as deprecated due to the new format standard. Use `AuthUser::getUser()` instead!
+-   Deprecated: The `AuthUser::generateHashed()` method has marked as deprecated due to the new format standard. Use `AuthUser::hashPassword()` instead!
+
+### Changes as 'Wolf CMS'
+-   Update: Added new xssClean() function to Framework
+-   Bugfix: Block common php extensions in filemanager upload. Fixes #636 - thanks @narendrabhati
+-   Bugfix: Fix issue with url for retrieving profile. Fixes #639 - thanks @SamBrishes
+-   Bugfix: Always generate a new salt for passwords. Fixes #640 - thanks @felberj
+-   Bugfix: Don't exit flow when disabling plugin. Fixes #637
+-   Bugfix: XSS issues in filemanager plugin. thanks @ravindra008
+-   Bugfix: missing CSRF token for Layout delete action - thanks @ravindra008
+-   Bugfix: XSS issue in forgot password form - thanks @tigerboy07
+-   Bugfix: email helper for HTML mails (malformed newlines) - thanks @blondak
+-   Bugfix: installer issue with switching to SQLite causing table prefixes to remain - thanks @korbeljak
+-   Bugfix: Textile filter causing deprecated warnings
+-   Bugfix: bug confusing x0b and x0d - thanks @phplaber
+-   Bugfix: bug #520: childrenCount() and children() not working on PostgreSQLplaber - thanks @korbeljak
+-   Bugfix: rewrite issue with Apache 2.4 - thanks @macropin
+
+Version 0.8.3.1
+---------------
+-   Bugfix: a redirect vulnerability (thanks AKA-Clay)
+-   Bugfix: a xss issue in file manager (thanks sumitingole)
+-   Bugfix: No longer allows upload of php files in filemanager (thanks narendrabhati)
+-   Bugfix: No longer allows rename to php extension in filemanager (thanks narendrabhati)
+
+Version 0.8.2
+-------------
+-   Update: A patch release that patches a single file to fix an SQLInjection issue with the Archive plugin.
+
+Version 0.8.1
+-------------
+-   Add: Refer to http://docs.wolfcms.org from backend footer for docs
+-   Add: events so page comment_status is saved.
+-   Add: a column in Pages where a Layout can be glanced.
+-   Update: Cleanup Page::find()
+-   Update: jquery version
+-   Update: Framework.php
+-   Bugfix: view variables not being set when passing array
+-   Bugfix: Minor bug in filemanagerview
+-   Bugfix: invalid params bug in Page.php
+-   Bugfix: missing values
+-   Bugfix: remaining where/values issues
+-   Bugfix: reorder pages in Chrome
+-   Bugfix: deprecated jQuery reference in install.php
+-   Bugfix: where Pages couldn’t be reordered in some browsers.
+-   Bugfix: images overflow in file magager
+-   Bugfix: erroneously missing "how to apply" section to GPL license text
+-   Bugfix: #585 - wrong check for php version
+-   Bugfix: #567 - use non-existing ```_send_data()``` replaced by ```_sendData()```
+
+Version 0.8.0
+-------------
+-   Add: BETA feature: automatic find methods
+-   Add: Record::find()
+-   Add: Record::findById()
+-   Add: Record::findOne()
+-   Add: AutoLoader::register() to register the autoloader on the SPL stack
+-   Update: children() and childrenOf() page ordering to 'page.position ASC, page.id DESC'
+-   Update: jQuery to 1.8.3
+-   Update: MarkItUp to 1.1.14
+-   Update: translations to latest versions
+-   Bugfix: bugs related to Node::registerMethod()
+-   Bugfix: input validation on Gravatar helper
+-   Bugfix: duplicate username issue
+-   Bugfix: Snippet add, delete, edit permissions issue
+-   Bugfix: Snippet redirect url issue
+-   Bugfix: issue allowing non-admins to set 'is_protected' setting on Page
+-   Bugfix: issue with editing .html files using FileManager plugin
+-   Bugfix: issue clearing cookies after logout
+-   Bugfix: issue with unused Tags lingering in DB
+-   Bugfix: use of deprecated pref_replace in Kses helper
+-   Removed: legacy (Prototype) JS functions

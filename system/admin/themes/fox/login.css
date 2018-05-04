@@ -1,0 +1,147 @@
+/*
+ |	Fox Theme
+ |	@file		./login.css
+ |	@author		SamBrishes <pytes@gmx.net>
+ |	@version	0.2.2 [0.2.0] - Beta
+ |
+ |	@require	Wolf CMS 0.8.3, CSS3-capable Browser
+ */
+@import url("loader.css");
+
+/* @start LOGIN SCREEN */
+html, body{
+	height: 100%;
+	min-height: auto;
+	overflow: auto;
+	background-color: transparent;
+}
+#dialog{
+	width: 100%;
+	margin: 0 auto;
+	padding: 0;
+	display: block;
+	position: relative;
+}
+#dialog h1{
+	color: #fff;
+	width: 250px;
+	height: 230px;
+	margin: 0 auto;
+	padding: 0;
+	display: block;
+	overflow: hidden;
+	font-size: 22px;
+	line-height: 22px;
+	text-align: center;
+	border: none;
+	background: transparent;
+}
+#dialog h1:before{
+	width: 250px;
+	height: 230px;
+	content: "";
+    opacity: 0.125;
+	margin: 0;
+	padding: 0;
+	display: block;
+	background: transparent url("images/logo-white-login.png") center 50px no-repeat;
+    background-size: 200px auto;
+}
+#dialog form{
+	width: 400px;
+	margin: 0 auto;
+	padding: 30px;
+	display: block;
+	background-color: #fff;
+	box-shadow: 1px 0 0 5px rgba(255, 255, 255, 0.35);
+	-moz-box-shadow: 1px 0 0 5px rgba(255, 255, 255, 0.35);
+	-webkit-box-shadow: 1px 0 0 5px rgba(255, 255, 255, 0.35);
+}
+#dialog form label{
+	color: #777;
+	cursor: pointer;
+	margin: 15px 0 5px 0;
+	padding: 0;
+	display: block;
+	font-size: 14px;
+	line-height: 14px;
+	text-shadow: none !important;
+}
+#dialog form div:first-child label{
+	margin-top: 0;
+}
+#dialog form input#login-remember-me{
+	height: 20px;
+	margin: 0;
+	display: inline-block;
+	vertical-align: top;
+	line-height: 20px;
+}
+#dialog form input#login-redirect+label{
+	margin: 0;
+	line-height: 20px;
+	vertical-align: top;
+}
+#dialog form input[type="text"],
+#dialog form input[type="password"]{
+	width: 100%;
+	height: 38px;
+	padding: 0px 10px;
+	display: block;
+	font-size: 20px;
+	line-height: 38px;
+}
+#dialog div.clean+div label{
+	display: inline-block;
+}
+#dialog div#login_submit,
+#dialog div#forgot-submit{
+	margin: 20px 0 0 0;
+}
+#dialog div#login_submit span,
+#dialog div#forgot-submit span{
+	float: right;
+}
+#dialog+p{
+	color: rgba(255, 255, 255, 0.5);
+	margin: 15px 0;
+	text-align: center;
+	text-shadow: -1px -1px 0 rgba(0, 0, 0, 0.2);
+	text-transform: capitalize;
+}
+#dialog+p a{
+	color: rgba(255, 255, 255, 0.75);
+	text-transform: none;
+}
+#dialog+p a:hover{
+	color: rgba(255, 255, 255, 0.85);
+	text-decoration: underline;
+}
+#info, #error, #success{
+	top: 130px;
+	left: 50%;
+	width: 400px;
+	margin: 0 0 0 -200px;
+	padding: 15px;
+	display: block;
+	text-align: left;
+	font-size: 12px;
+	line-height: 16px;
+	background-color: #fff;
+	box-shadow: 1px 0 0 5px rgba(255, 255, 255, 0.35);
+	-moz-box-shadow: 1px 0 0 5px rgba(255, 255, 255, 0.35);
+	-webkit-box-shadow: 1px 0 0 5px rgba(255, 255, 255, 0.35);
+}
+#info{
+	color: #6eb4b4;
+	background-color: #fff;
+}
+#error{
+	color: #dd0000;
+	background: #fff;
+}
+#success{
+	color: #78af19;
+	background-color: #fff;
+}
+/* @end LOGIN SCREEN */

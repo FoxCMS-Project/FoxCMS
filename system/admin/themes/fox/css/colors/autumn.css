@@ -1,0 +1,151 @@
+/*
+ |	Fox Theme
+ |	@file		./css/colors/autumn.css
+ |	@author		SamBrishes <pytes@gmx.net>
+ |	@version	0.2.2 [0.2.0] - Beta
+ |
+ |	@require	Wolf CMS 0.8.3, CSS3-capable Browser
+ */
+/*
+ |	COLOR SCHEME
+ |	http://www.color-hex.com/color-palette/10894
+ */
+ 
+/* @start LOGIN SCREEN */
+body{
+	background: #d96459;
+	background: -moz-radial-gradient(center, ellipse cover,  #d96459 0%, #97463e 100%);
+	background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%,#d96459), color-stop(100%,#97463e));
+	background: -webkit-radial-gradient(center, ellipse cover,  #d96459 0%,#97463e 100%);
+	background: -o-radial-gradient(center, ellipse cover,  #d96459 0%,#97463e 100%);
+	background: -ms-radial-gradient(center, ellipse cover,  #d96459 0%,#97463e 100%);
+	background: radial-gradient(ellipse at center,  #d96459 0%,#97463e 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d96459', endColorstr='#97463e',GradientType=1 );
+}
+#dialog form, #info, #error, #success{
+	border: 1px solid #c35a50;
+}
+/* @end LOGIN SCREEN */
+
+/* @start GENERAL */
+a{
+	color: #d96459;
+}
+a:hover{
+	color: #588c73;
+}
+#snippet_name:focus, #snippet_name.focus,
+input[type="text"]:focus, input[type="password"]:focus, input[type="email"]:focus,
+input[type="search"]:focus, input[type="number"]:focus, select:focus, textarea:focus, #content textarea:focus,
+input[type="text"].focus, input[type="password"].focus, input[type="email"].focus,
+input[type="search"].focus, input[type="number"].focus, select.focus, textarea.focus, #content textarea.focus{
+	border: 1px solid #588c73;
+	box-shadow: 0 1px 1px 0 rgba(88, 140, 115, 0.5);
+	-moz-box-shadow: 0 1px 1px 0 rgba(88, 140, 115, 0.5);
+	-webkit-box-shadow: 0 1px 1px 0 rgba(88, 140, 115, 0.5);
+}
+input[type="submit"], input[type="submit"]:focus, input[type="submit"].focus, 
+input[type="button"], input[type="button"]:focus, input[type="button"].focus,
+.button, .button:focus, .button.focus{
+	border-color: #4f7e67;
+	background-color: #588c73;
+}
+input[type="submit"]:hover, input[type="submit"].hover, 
+input[type="button"]:hover, input[type="button"].hover, 
+.button:hover, .button.hover{
+	border-color: #46705c;
+	background-color: #4f7e67;
+}
+input[type="submit"]:active, input[type="submit"].active, 
+input[type="button"]:active, input[type="button"].active, 
+.button:active, .button.active{
+	border-color: #3d6250;
+	background: #3d6250;
+}
+/* @end GENERAL */
+
+/* @start ELEMENTS */
+#header{
+	background-color: #d96459;
+}
+#mainTabs ul li.plugin a.current, #mainTabs ul li.right a.current,
+#mainTabs ul li.plugin a.current:hover, #mainTabs ul li.right a.current:hover{
+	color: #f2e394;
+}
+#sidebar-wrapper #sidebar p.button a,
+#sidebar-wrapper #sidebar p.button a:before{
+	text-shadow: none;
+}
+#sidebar-wrapper #sidebar p.button a:hover:before{
+	color: #d96459;
+}
+div#footer p#site-links a{
+	color: #fff;
+	border-color: #703838;
+	background-color: #8c4646;
+	box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.15);
+	-moz-box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.15);
+	-webkit-box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.15);
+}
+div#footer p#site-links a:before{
+	color: rgba(255, 255, 255, 0.75);
+	background-color: #7e3f3f;
+}
+#footer p:first-child a, #footer p.stats a{
+	color: #d96459;
+}
+/* @end ELEMENTS */
+
+/* @start LISTS */
+div#site-map-def div #toggle_reorder:hover,
+div#site-map-def div #reorder-toggle:hover{
+	color: #d96459;
+}
+ul#site-map-root li.node.level-0 div.page span.title,
+ul#site-map-root li.node.level-0 div.page a span.title{
+	color: #d96459;
+}
+ul#site-map-root li.node.level-0 div.view-page a:hover:before,
+ul#site-map li.level-1 div.content-children div.view-page a:hover:before{
+	color: #d96459 !important;
+}
+ul#site-map li.level-1 div.content-children div.page span.w1 a:hover span.title,
+ul#site-map li.level-1 div.content-children div.page span.w1 a:visited:hover span.title{
+	color: #d96459;
+}
+table.index tr td.plugin h4 a{
+	color: #d96459;
+}
+table.index tr td.plugin h4 a:hover{
+	color: #588c73;
+}
+.index .node a:hover, .index .even a:hover, .index .odd a:hover{
+	color: #d96459 !important;
+}
+.index .node a:hover, .index .node a:visited:hover{
+	color: #d96459;
+}
+/* @end LISTS */
+
+/* @start FORMS */
+ul.tabNavigation li.tab a:hover{
+	color: #d96459;
+}
+.dpTable tr.dpTitleTR td.dpButtonTD button:before{
+	color: #d96459;
+}
+.dpTable tr.dpTR td.dpTDHover{
+	color: #d96459;
+}
+.dpTable tr.dpTR td.dpDayHighlightTD,
+.dpTable tr.dpTR td .dpDayHighlight{
+	color: #d96459;
+}
+/* @end FORMS */
+
+/* @start PLUGINS */
+body#body_plugin_comment .pagination span.current{
+	border-color: #588c73;
+	background-color: #588c73;
+}
+/* @end PLUGINS */

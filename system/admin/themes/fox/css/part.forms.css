@@ -1,0 +1,761 @@
+/*
+ |	Fox Theme
+ |	@file		./css/part.forms.css
+ |	@author		SamBrishes <pytes@gmx.net>
+ |	@version	0.2.2 [0.2.0] - Beta
+ |
+ |	@require	Wolf CMS 0.8.3, CSS3-capable Browser
+ */
+
+/* @start FORM DESIGN */
+label{
+	cursor: pointer;
+	font-weight: normal;
+}
+p.buttons{
+	clear: both;
+	color: transparent;
+	margin: 10px 0 0 0;
+	padding: 0;
+	font-size: 0;
+}
+p.buttons input, p.buttons a, p.buttons button{
+	margin: 2px 5px;
+}
+p.buttons a{
+	line-height: 26px;
+}
+ul.tabNavigation{
+	width: auto;
+	height: 40px;
+	margin: 0;
+	padding: 0 15px;
+	display: block;
+	list-style: none;
+	border-bottom: 1px solid #d0d0d0;
+}
+ul.tabNavigation li.tab{
+	float: left;
+	margin: 0;
+	padding: 0;
+	display: inline-block;
+}
+ul.tabNavigation li.tab a{
+	color: #555;
+	cursor: pointer;
+	height: 40px;
+	margin: 0;
+	padding: 10px 15px;
+	display: block;
+	border-top: 1px solid #d0d0d0;
+	border-left: none;
+	border-right: 1px solid #d0d0d0;
+	border-bottom: 1px solid #d0d0d0;
+	background-color: #f0f0f0;
+	border-radius: 0;
+	-moz-border-radius: 0;
+	-webkit-border-radius: 0;
+}
+ul.tabNavigation li.tab:first-child a{
+	border-left: 1px solid #d0d0d0;
+}
+ul.tabNavigation li.tab a:hover{
+	color: #e65a32;
+	background-color: #fff;
+}
+ul.tabNavigation li.tab a.here{
+	color: #555 !important;
+	font-weight: normal;
+	border-bottom: 1px solid #fff;
+	background-color: #fff;
+}
+.pages{
+	margin: 0;
+	padding: 0;
+	display: block;
+}
+.pages .page{
+	margin: 0;
+	padding: 0;
+	display: block;
+}
+.form-area{
+	margin: 0;
+	padding: 20px 0 0 0;
+	background-color: #fff;
+}
+.form-area .content{
+	margin: 0;
+	padding: 0;
+}
+.form-area label{
+	text-align: left;
+	font-weight: normal;
+}
+.form-area h3,
+.form-area p.title label{
+	margin: 0;
+	padding: 5px 10px;
+	display: block;
+	font-size: 16px;
+	line-height: 16px;
+	font-weight: normal;
+}
+.form-area h3:first-child,
+.form-area p.title label:first-child{
+	padding-top: 0;
+}
+.form-area p{
+	margin: 0;
+}
+.form-area small{
+	font-size: 12px;
+	line-height: 18px;
+	text-align: left;
+	font-style: italic;
+	font-weight: normal;
+}
+.form-area .textbox{
+	width: 100%;
+}
+.form-area .title .textbox{
+	width: 100% !important;
+	margin: 0 !important;
+	padding: 7px 10px !important;
+	font-size: 20px !important;
+	line-height: 26px !important;
+	font-family: "Open Sans", Calibri, Arial, sans-serif;
+}
+.form-area table.fieldset{
+	width: 100%;
+	margin: 20px 0 0 0;
+	padding: 0;
+	border: none;
+	border-spacing: 0;
+	border-collapse: collapse;
+}
+table.fieldset tr td,
+table.fieldset tr td.label,
+table.fieldset tr td.field,
+table.fieldset tr td.help{
+	padding: 14px 10px;
+	font-size: 14px;
+	line-height: 20px;
+	text-align: left;
+	font-weight: normal;
+	border: none;
+	background: none;
+	vertical-align: top;
+}
+table.fieldset tr td[colspan="3"]{
+	padding: 0;
+}
+table.fieldset tr td h3{
+	margin: 7px 15px;
+	padding: 5px 15px;
+	display: inline-block;
+	font-size: 16px;
+	line-height: 16px;
+	font-weight: normal;
+	border-bottom: 1px solid #d0d0d0
+}
+table.fieldset tr td.label{
+	width: 350px;
+}
+table.fieldset tr td.label .optional{
+	color: #6eb4b4;
+}
+table.fieldset tr td.field{
+	padding: 4px 10px;
+}
+table.fieldset tr td.field .checkbox{
+	width: auto;
+	float: none;
+	margin: 0;
+	padding: 0;
+	display: inline-block;
+}
+table.fieldset tr td.field input[type="checkbox"],
+table.fieldset tr td.field input[type="radio"]{
+	margin: 3px;
+}
+table.fieldset tr td.field input[type="checkbox"]+label,
+table.fieldset tr td.field input[type="radio"]+label{
+	font-weight: normal;
+}
+table.fieldset tr td.help{
+	color: #aaa;
+	padding: 4px 10px;
+	font-size: 12px;
+	line-height: 18px;
+}
+/* @end FORM DESIGN */
+
+/* @start EDIT PAGE */
+a#site-view-page{
+	color: #777;
+	margin: -8px 0 0 0;
+	padding: 5px 8px;
+	display: inline-block;
+	position: relative;
+	font-size: 12px;
+	line-height: 12px;
+	border: 1px solid #d0d0d0;
+	border-radius: 3px;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	box-shadow: 0 1px 1px 0 #dfdfdf;
+	-moz-box-shadow: 0 1px 1px 0 #dfdfdf;
+	-webkit-box-shadow: 0 1px 1px 0 #dfdfdf;
+}
+a#site-view-page:before{
+	color: #777;
+	content: "\f06e";
+	margin: -5px 7px -5px 0;
+	padding: 0 7px 0 0;
+	display: inline-block;
+    font: normal normal normal 12px/22px FontAwesome;
+	border-right: 1px solid #d0d0d0;
+	text-align: center;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+	vertical-align: top;
+}
+a#site-view-page:hover{
+	color: #333;
+	border: 1px solid #c0c0c0;
+	box-shadow: 0 1px 1px 0 #cfcfcf;
+	-moz-box-shadow: 0 1px 1px 0 #cfcfcf;
+	-webkit-box-shadow: 0 1px 1px 0 #cfcfcf;
+}
+a#site-view-page:hover:before{
+	color: #333;
+}
+#metainfo-tabs{
+	margin: 0;
+	padding: 0;
+	display: block;
+}
+#metainfo-tabs ul li.tab a{
+	background-color: #fff;
+}
+#metainfo-tabs ul li.tab a.here{
+	border-bottom-color: #f0f0f0;
+	background-color: #f0f0f0;
+}
+
+#metainfo-content{
+	margin: 0;
+	padding: 0;
+	display: block;
+}
+#metainfo-content .page,
+#metainfo-content #pagetitle,
+#metainfo-content #metadata,
+#metainfo-content #settings{
+	margin: 0 0 15px 0;
+	padding: 0;
+	display: block;
+}
+#metainfo-content .page div,
+#metainfo-content #pagetitle div#div-title,
+#metainfo-content #metadata div#div-metadata,
+#metainfo-content #settings div#div-settings{
+	padding: 15px;
+	border-left: 1px solid #d0d0d0;
+	border-right: 1px solid #d0d0d0;
+	border-bottom: 1px solid #d0d0d0;
+	background-color: #f0f0f0;
+}
+#metainfo-content .page div input[type="text"],
+#metainfo-content .page div input[type="password"],
+#metainfo-content .page div input[type="email"],
+#metainfo-content .page div input[type="search"],
+#metainfo-content .page div input[type="number"],
+#metainfo-content .page div select,
+#metainfo-content .page div textarea{
+	padding: 4px 7px;
+	font-size: 12px;
+	line-height: 18px;
+}
+#metainfo-content .page div select{
+	height: 28px;
+	padding: 2px 7px;
+	font-size: 12px;
+	line-height: 18px;
+}
+#metainfo-content .page div textarea{
+	padding: 7px;
+	line-height: 18px;
+}
+#metainfo-content #settings div#div-settings input[type="text"]{
+	width: 125px;
+}
+#metainfo-content table{
+	width: 100%;
+	background: transparent;
+}
+#metainfo-content table tr td,
+#metainfo-content table tr th{
+	background: transparent;
+	vertical-align: top;
+}
+#metainfo-content table tr td:first-child{
+	width: 200px;
+	padding: 10px 10px;
+	font-size: 12px;
+	line-height: 12px;
+}
+#part-tabs{
+	margin: 0;
+	padding: 0;
+	display: block;
+}
+#part-tabs .tab_toolbar{
+	height: 39px;
+	margin: 0;
+	padding: 0;
+	border-top: 1px solid #d0d0d0;
+	border-left: 1px solid #d0d0d0;
+	border-right: 1px solid #d0d0d0;
+	background-color: #f0f0f0;
+}
+#part-tabs .tab_toolbar a{
+	color: #aaa;
+	float: left;
+	width: 36px;
+	margin: 0;
+	padding: 0;
+	display: inline-block;
+	text-align: center;
+	vertical-align: top;
+}
+#part-tabs .tab_toolbar a:hover{
+	background-color: #fff;
+}
+#part-tabs .tab_toolbar a#add-part{
+	border-right: 1px solid #d0d0d0;
+}
+#part-tabs .tab_toolbar a:before{
+	margin: 0;
+	padding: 1px 0 0 0;
+	display: block;
+    font: normal normal normal 21px/37px FontAwesome;
+	text-align: center;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+	vertical-align: top;
+}
+#part-tabs .tab_toolbar a#add-part:before{
+	content: "\f055";
+}
+#part-tabs .tab_toolbar a#delete-part:before{
+	content: "\f057";
+}
+#part-tabs .tab_toolbar a#add-part:hover{
+	color: #78af19;
+}
+#part-tabs .tab_toolbar a#delete-part:hover{
+	color: #dd0000;
+}
+#part-tabs .tab_toolbar a#add-part img,
+#part-tabs .tab_toolbar a#delete-part img{
+	display: none;
+}
+#part-content{
+	padding: 15px;
+	border-left: 1px solid #d0d0d0;
+	border-right: 1px solid #d0d0d0;
+	border-bottom: 1px solid #d0d0d0;
+	background-color: #fff;
+	border-radius: 0;
+	-moz-border-radius: 0;
+	-webkit-border-radius: 0;
+}
+.form-area .pages .page p,
+#part-content .page .part p{
+	margin: 0 0 10px 0;
+	padding: 0;
+	display: block;
+	text-align: left;
+}
+body#body_page_add .form-area .pages .page p,
+body#body_page_edit .form-area .pages .page p{
+	text-align: right;
+}
+.page p label[for="snippet_filter_id"],
+#part-content .page .part p label{
+	margin: 0 5px 0 0;
+}
+select.filter-selector,
+input#layout_content_type,
+#part-content .page .part p select{
+	height: auto;
+	padding: 3px 5px;
+	font-size: 12px;
+	line-height: 18px !important;
+}
+.form-area .row{
+	float: right;
+	margin: 0;
+	padding: 10px 15px;
+	display: inline-block;
+	text-align: right;
+}
+.form-area .row p,
+.form-area .row .fieldset{
+	float: none;
+	margin: 0 0 0 10px;
+	padding: 0;
+	display: inline-block;
+}
+.form-area .row label{
+	margin: 0 5px 0 0;
+}
+.form-area .row input[type="text"],
+.form-area .row input[type="password"],
+.form-area .row input[type="email"],
+.form-area .row input[type="search"],
+.form-area .row input[type="number"],
+.form-area .row select{
+	height: auto;
+	padding: 4px 5px;
+	font-size: 12px;
+	line-height: 18px !important;
+}
+.form-area .row select{
+	padding: 3px 5px;
+}
+.form-area .row+p{
+	color: #aaa;
+	float: left;
+	font-size: 12px;
+	font-style: italic;
+	line-height: 12px;
+	padding: 10px 15px;
+}
+/* @end EDIT PAGE */
+
+/* @start EDIT SNIPPET */
+body#body_snippet_add h3,
+body#body_snippet_edit h3{
+	margin: 35px 0 0 0;
+	display: inline-block;
+}
+body#body_snippet_add h3:first-child,
+body#body_snippet_edit h3:first-child{
+	margin-top: 0;
+}
+body#body_snippet_add #pages,
+body#body_snippet_edit #pages{
+	margin: -35px 0 0 0;
+}
+body#body_snippet_add .form-area .pages .page p,
+body#body_snippet_edit .form-area .pages .page p{
+	text-align: right;
+}
+body#body_snippet_add .form-area #pages .page textarea+p,
+body#body_snippet_edit .form-area #pages .page textarea+p{
+	color: #aaa;
+	float: right;
+	margin: 0;
+	padding: 10px 15px;
+	font-size: 12px;
+	font-style: italic;
+	line-height: 12px;
+}
+body#body_snippet_add p.buttons,
+body#body_snippet_edit p.buttons{
+	display: inline-block;
+}
+/* @end EDIT SNIPPET */
+
+/* @start EDIT LAYOUT */
+body#body_layout_add table.fieldset,
+body#body_layout_edit table.fieldset{
+	float: right;
+	width: auto;
+	margin: 27px 0 11px 0;
+}
+body#body_layout_add table.fieldset tr td,
+body#body_layout_edit table.fieldset tr td{
+	padding: 0;
+	font-size: 12px;
+	line-height: 12px;
+}
+body#body_layout_add table.fieldset tr td:first-child,
+body#body_layout_edit table.fieldset tr td:first-child{
+	padding: 0;
+	font-size: 12px;
+	line-height: 12px;
+}
+body#body_layout_add table.fieldset tr td label,
+body#body_layout_edit table.fieldset tr td label{
+	margin: 0 5px 0 0;
+	line-height: 25px;
+}
+body#body_layout_add p.content label,
+body#body_layout_edit p.content label{
+	margin: 35px 0 0 0;
+	padding: 5px 10px;
+	display: inline-block;
+	font-size: 16px;
+	line-height: 16px;
+	font-weight: normal;
+}
+body#body_layout_add p.content+p,
+body#body_layout_edit p.content+p{
+	color: #aaa;
+	float: right;
+	margin: 0;
+	padding: 10px 15px;
+	font-size: 12px;
+	font-style: italic;
+	line-height: 12px;
+}
+body#body_layout_add input#layout_content_type,
+body#body_layout_edit input#layout_content_type{
+	width: 350px;
+	font-size: 12px;
+	line-height: 18px;
+}
+body#body_layout_add p.buttons,
+body#body_layout_edit p.buttons{
+	display: inline-block;
+}
+/* @end EDIT LAYOUT */
+
+/* @start CALENDAR */
+img.datepicker{
+	cursor: pointer;
+}
+.dpDiv{
+	margin-top: 3px;
+	border: none;
+	border: 1px solid #c0c0c0;
+	background-color: #fff;
+}
+.dpTable{
+	color: #555;
+	text-align: center;
+	border: none;
+	background-color: #e0e0e0;
+}
+.dpTable tr td{
+	padding: 2px 3px;
+	border-bottom: 1px solid #c0c0c0;
+}
+.dpTable tr.dpTitleTR{
+	height: 25px;
+	background-color: #fff;
+}
+.dpTable tr.dpTitleTR td.dpButtonTD{
+	width: 25px;
+	height: 25px;
+	margin: 0;
+	padding: 0;
+}
+.dpTable tr.dpTitleTR td.dpButtonTD button{
+	color: transparent;
+	width: 25px;
+	height: 25px;
+	margin: 0;
+	padding: 0;
+	font-size: 0;
+	background-color: #fff;
+	border-radius: 0;
+	-moz-border-radius: 0;
+	-webkit-border-radius: 0;
+	box-shadow: none;
+	-moz-box-shadow: none;
+	-webkit-box-shadow: none;
+}
+.dpTable tr.dpTitleTR td.dpButtonTD button:before{
+	color: #E65A32;
+    font: normal normal normal 22px/25px FontAwesome;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+.dpTable tr.dpTitleTR td.dpButtonTD button:hover:before{
+	color: #555;
+}
+.dpTable tr.dpTitleTR td.dpButtonTD:first-child button:before{
+	content: "\f104";
+}
+.dpTable tr.dpTitleTR td.dpButtonTD:last-child button:before{
+	content: "\f105";
+}
+.dpTable tr.dpTitleTR td.dpTitleTD{
+	color: #555;
+	margin: 0;
+	padding: 8px 0;
+	font-size: 12px;
+	line-height: 12px;
+}
+.dpTable tr.dpDayTR td.dpDayTD{
+	margin: 0;
+	padding: 7px 0;
+	font-size: 12px;
+	line-height: 12px;
+	background-color: #f0f0f0;
+}
+.dpTable tr.dpTR{
+	background-color: #fff;
+}
+.dpTable tr.dpTR td{
+	border: 1px solid #c0c0c0;
+	background-color: #fff;
+}
+.dpTable tr.dpTR td:first-child{
+	border-left: none;
+}
+.dpTable tr.dpTR td.dpTDempty{
+	border-left: none;
+	border-right: none;
+	background-color: #e0e0e0;
+}
+.dpTable tr.dpTR td.dpTDHover{
+	color: #E65A32;
+	background-color: #f0f0f0;
+}
+.dpTable tr.dpTR td.dpDayHighlightTD,
+.dpTable tr.dpTR td .dpDayHighlight{
+	color: #E65A32;
+	background-color: #f0f0f0;
+}
+.dpTable tr.dpTodayButtonTR td{
+	border: none;
+	background-color: #f0f0f0;
+}
+.dpTable tr.dpTodayButtonTR td button{
+	color: #777;
+	height: auto;
+	margin: 5px 0;
+	padding: 3px 5px;
+	display: inline-block;
+	font-size: 11px;
+	line-height: 14px;
+	text-transform: capitalize;
+	border: 1px solid #d0d0d0;
+	background-color: #fff;
+	border-radius: 3px;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	box-shadow: 0 1px 1px 0 #dfdfdf;
+	-moz-box-shadow: 0 1px 1px 0 #dfdfdf;
+	-webkit-box-shadow: 0 1px 1px 0 #dfdfdf;
+}
+.dpTable tr.dpTodayButtonTR td button:hover{
+	color: #555;
+	border-color: #c0c0c0;
+	background-color: #eaeaea;
+	box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.2);
+	-moz-box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.2);
+	-webkit-box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.2);
+}
+.dpTable tr.dpTodayButtonTR td button:active{
+	color: #888;
+	border-color: #b0b0b0;
+	background-color: #eaeaea;
+	box-shadow: inset 0 1px 1px 0 rgba(0, 0, 0, 0.25);
+	-moz-box-shadow: inset 0 1px 1px 0 rgba(0, 0, 0, 0.25);
+	-webkit-box-shadow: inset 0 1px 1px 0 rgba(0, 0, 0, 0.25);
+}
+/* @end CALENDAR */
+
+/* @start FILTER */
+.markItUpHeader{
+	width: 100%;
+	height: 35px;
+	border-top: 1px solid #c0c0c0;
+	border-left: 1px solid #c0c0c0;
+	border-right: 1px solid #c0c0c0;
+}
+.markItUpHeader ul li{
+	float: none;
+	margin: 0;
+	padding: 0;
+	display: inline-block;
+	vertical-align: top;
+}
+.markItUpHeader ul li a{
+	width: 28px;
+	height: 28px;
+	color: transparent !important;
+	margin: 3px 2px;
+	padding: 0;
+	display: inline-block;
+	font-size: 0;
+	text-align: center;
+	text-indent: 0;
+	border: 1px solid #d0d0d0;
+	background-position: center center;
+	vertical-align: top;
+	border-radius: 2px;
+	-moz-border-radius: 2px;
+	-webkit-border-radius: 2px;
+	box-shadow: 0 1px 1px 0 #dfdfdf;
+	-moz-box-shadow: 0 1px 1px 0 #dfdfdf;
+	-webkit-box-shadow: 0 1px 1px 0 #dfdfdf;
+}
+.markItUpHeader ul li:first-child a{
+	margin-left: 4px;
+}
+.markItUpHeader ul li a:hover{
+	border-color: #b0b0b0;
+	box-shadow: 0 1px 1px 0 #bfbfbf;
+	-moz-box-shadow: 0 1px 1px 0 #bfbfbf;
+	-webkit-box-shadow: 0 1px 1px 0 #bfbfbf;
+}
+.markItUpHeader ul li a:before{
+	color: #777;
+	display: block;
+    font: normal normal normal 14px/26px FontAwesome;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+	vertical-align: top;
+}
+.markItUpHeader ul li a:hover:before{
+	color: #333;
+}
+
+.textile .markItUpHeader ul li a{ background: none; }
+.textile .markItUpHeader ul li.markItUpButton1 a:before{ content: "\f1dc""1"; padding-left: 1px; font-size: 11px; line-height: 28px; }
+.textile .markItUpHeader ul li.markItUpButton2 a:before{ content: "\f1dc""2"; padding-left: 1px; font-size: 11px; line-height: 28px; }
+.textile .markItUpHeader ul li.markItUpButton3 a:before{ content: "\f1dc""3"; padding-left: 1px; font-size: 11px; line-height: 28px; }
+.textile .markItUpHeader ul li.markItUpButton4 a:before{ content: "\f1dc""4"; padding-left: 1px; font-size: 11px; line-height: 28px; }
+.textile .markItUpHeader ul li.markItUpButton5 a:before{ content: "\f1dc""5"; padding-left: 1px; font-size: 11px; line-height: 28px; }
+.textile .markItUpHeader ul li.markItUpButton6 a:before{ content: "\f1dc""6"; padding-left: 1px; font-size: 11px; line-height: 28px; }
+.textile .markItUpHeader ul li.markItUpButton7 a:before{ content: "\f1dd"; }
+.textile .markItUpHeader ul li.markItUpButton8 a:before{ content: "\f032"; }
+.textile .markItUpHeader ul li.markItUpButton9 a:before{ content: "\f033"; }
+.textile .markItUpHeader ul li.markItUpButton10 a:before{ content: "\f0cc"; }
+.textile .markItUpHeader ul li.markItUpButton11 a:before{ content: "\f0ca"; }
+.textile .markItUpHeader ul li.markItUpButton12 a:before{ content: "\f0cb"; }
+.textile .markItUpHeader ul li.markItUpButton13 a:before{ content: "\f03e"; }
+.textile .markItUpHeader ul li.markItUpButton14 a:before{ content: "\f0c1"; }
+.textile .markItUpHeader ul li.markItUpButton15 a:before{ content: "\f10e"; }
+.textile .markItUpHeader ul li.markItUpButton16 a:before{ content: "\f121"; }
+.textile .markItUpHeader ul li.markItUpButton17 a:before{ content: "\f06e"; }
+
+.markdown .markItUpHeader ul li a{ background: none; }
+.markdown .markItUpHeader ul li.markItUpButton1 a:before{ content: "\f1dc""1"; padding-left: 1px; font-size: 11px; line-height: 28px; }
+.markdown .markItUpHeader ul li.markItUpButton2 a:before{ content: "\f1dc""2"; padding-left: 1px; font-size: 11px; line-height: 28px; }
+.markdown .markItUpHeader ul li.markItUpButton3 a:before{ content: "\f1dc""3"; padding-left: 1px; font-size: 11px; line-height: 28px; }
+.markdown .markItUpHeader ul li.markItUpButton4 a:before{ content: "\f1dc""4"; padding-left: 1px; font-size: 11px; line-height: 28px; }
+.markdown .markItUpHeader ul li.markItUpButton5 a:before{ content: "\f1dc""5"; padding-left: 1px; font-size: 11px; line-height: 28px; }
+.markdown .markItUpHeader ul li.markItUpButton6 a:before{ content: "\f1dc""6"; padding-left: 1px; font-size: 11px; line-height: 28px; }
+.markdown .markItUpHeader ul li.markItUpButton7 a:before{ content: "\f032"; }
+.markdown .markItUpHeader ul li.markItUpButton8 a:before{ content: "\f033"; }
+.markdown .markItUpHeader ul li.markItUpButton9 a:before{ content: "\f0ca"; }
+.markdown .markItUpHeader ul li.markItUpButton10 a:before{ content: "\f0cb"; }
+.markdown .markItUpHeader ul li.markItUpButton11 a:before{ content: "\f03e"; }
+.markdown .markItUpHeader ul li.markItUpButton12 a:before{ content: "\f0c1"; }
+.markdown .markItUpHeader ul li.markItUpButton13 a:before{ content: "\f10e"; }
+.markdown .markItUpHeader ul li.markItUpButton14 a:before{ content: "\f121"; }
+.markdown .markItUpHeader ul li.markItUpButton15 a:before{ content: "\f06e"; }
+/* @end FILTER */

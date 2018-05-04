@@ -1,0 +1,162 @@
+/*
+ |	Fox Theme
+ |	@file		./css/colors/penguin.css
+ |	@author		SamBrishes <pytes@gmx.net>
+ |	@version	0.2.2 [0.2.0] - Beta
+ |
+ |	@require	Wolf CMS 0.8.3, CSS3-capable Browser
+ */
+/*
+ |	COLOR SCHEME
+ |
+ |	MAIN BLUE		#76ACAC		rgb(118, 172, 172)
+ |	LIGHT BLUE		#CCE6FF		rgb(204, 230, 255)
+ |	BROWN			#D89666		rgb(216, 150, 102)
+ */
+ 
+/* @start LOGIN SCREEN */
+body{
+	background: #76acac;
+	background: -moz-radial-gradient(center, ellipse cover,  #76acac 0%, #527878 100%);
+	background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%,#76acac), color-stop(100%,#527878));
+	background: -webkit-radial-gradient(center, ellipse cover,  #76acac 0%,#527878 100%);
+	background: -o-radial-gradient(center, ellipse cover,  #76acac 0%,#527878 100%);
+	background: -ms-radial-gradient(center, ellipse cover,  #76acac 0%,#527878 100%);
+	background: radial-gradient(ellipse at center,  #76acac 0%,#527878 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#76acac', endColorstr='#527878',GradientType=1 );
+}
+#dialog form, #info, #error, #success{
+	border: 1px solid #6a9a9a;
+}
+/* @end LOGIN SCREEN */
+
+/* @start GENERAL */
+a{
+	color: #76ACAC;
+}
+a:hover{
+	color: #D89666;
+}
+#snippet_name:focus, #snippet_name.focus,
+input[type="text"]:focus, input[type="password"]:focus, input[type="email"]:focus,
+input[type="search"]:focus, input[type="number"]:focus, select:focus, textarea:focus, #content textarea:focus,
+input[type="text"].focus, input[type="password"].focus, input[type="email"].focus,
+input[type="search"].focus, input[type="number"].focus, select.focus, textarea.focus, #content textarea.focus{
+	border: 1px solid #76ACAC;
+	box-shadow: 0 1px 1px 0 rgba(118, 172, 172, 0.5);
+	-moz-box-shadow: 0 1px 1px 0 rgba(118, 172, 172, 0.5);
+	-webkit-box-shadow: 0 1px 1px 0 rgba(118, 172, 172, 0.5);
+}
+input[type="submit"], input[type="submit"]:focus, input[type="submit"].focus, 
+input[type="button"], input[type="button"]:focus, input[type="button"].focus,
+.button, .button:focus, .button.focus{
+	border-color: #6a9a9a;
+	background-color: #76ACAC;
+}
+input[type="submit"]:hover, input[type="submit"].hover, 
+input[type="button"]:hover, input[type="button"].hover, 
+.button:hover, .button.hover{
+	border-color: #5e8989;
+	background-color: #6a9a9a;
+}
+input[type="submit"]:active, input[type="submit"].active, 
+input[type="button"]:active, input[type="button"].active, 
+.button:active, .button.active{
+	border-color: #5e8989;
+	background: #5e8989;
+}
+/* @end GENERAL */
+
+/* @start ELEMENTS */
+#header{
+	background-color: #76ACAC;
+}
+#mainTabs ul li.plugin a.current, #mainTabs ul li.right a.current,
+#mainTabs ul li.plugin a.current:hover, #mainTabs ul li.right a.current:hover{
+	color: #CCE6FF;
+}
+#sidebar-wrapper #sidebar p.button a,
+#sidebar-wrapper #sidebar p.button a:before{
+	text-shadow: none;
+}
+#sidebar-wrapper #sidebar p.button a:hover:before{
+	color: #D89666;
+}
+#footer p:first-child a, #footer p.stats a{
+	color: #76ACAC;
+}
+div#footer p#site-links a{
+	color: #fff;
+	border-color: #6a9a9a;
+	background-color: #9fc4c4;
+	box-shadow: none;
+	-moz-box-shadow: none;
+	-webkit-box-shadow: none;
+}
+div#footer p#site-links a:before{
+	color: rgba(255, 255, 255, 0.75);
+	margin: 0;
+	background-color: transparent
+}
+div#footer p#site-links a:hover{
+	border-color: #527878;
+	background-color: #5e8989;
+	box-shadow: none;
+	-moz-box-shadow: none;
+	-webkit-box-shadow: none;
+}
+div#footer p#site-links a:hover:before{
+	color: #fff;
+	background-color: transparent
+}
+/* @end ELEMENTS */
+
+/* @start LISTS */
+div#site-map-def div #toggle_reorder:hover,
+div#site-map-def div #reorder-toggle:hover{
+	color: #76ACAC;
+}
+ul#site-map-root li.node.level-0 div.page span.title,
+ul#site-map-root li.node.level-0 div.page a span.title{
+	color: #76ACAC;
+}
+ul#site-map-root li.node.level-0 div.view-page a:hover:before,
+ul#site-map li.level-1 div.content-children div.view-page a:hover:before{
+	color: #76ACAC !important;
+}
+ul#site-map li.level-1 div.content-children div.page span.w1 a:hover span.title,
+ul#site-map li.level-1 div.content-children div.page span.w1 a:visited:hover span.title{
+	color: #76ACAC;
+}
+table.index tr td.plugin h4 a{
+	color: #D89666;
+}
+table.index tr td.plugin h4 a:hover{
+	color: #76ACAC;
+}
+.index .node a:hover, .index .even a:hover, .index .odd a:hover{
+	color: #76ACAC !important;
+}
+.index .node a:hover, .index .node a:visited:hover{
+	color: #76ACAC;
+}
+/* @end LISTS */
+
+/* @start FORMS */
+ul.tabNavigation li.tab a:hover{
+	color: #D89666;
+}
+.dpTable tr.dpTitleTR td.dpButtonTD button:before
+.dpTable tr.dpTR td.dpTDHover,
+.dpTable tr.dpTR td.dpDayHighlightTD,
+.dpTable tr.dpTR td .dpDayHighlight{
+	color: #76ACAC !important;
+}
+/* @end FORMS */
+
+/* @start PLUGINS */
+body#body_plugin_comment .pagination span.current{
+	border-color: #76ACAC;
+	background-color: #76ACAC;
+}
+/* @end PLUGINS */

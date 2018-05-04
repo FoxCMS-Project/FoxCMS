@@ -1,0 +1,350 @@
+<?php
+/*
+ |  Basic Fox Theme (WiP)
+ |  @file       ./fox/screen.css
+ |  @author     SamBrishes@pytesNET
+ |  @version    0.1.0 [0.1.0] - Alpha
+ |
+ |  @license    GNU GPL v3
+ |  @copyright  Copyright © 2015 - 2018 SamBrishes, pytesNET <pytes@gmx.net>
+ |
+ |  @history    Copyright © 2009 - 2015 Martijn van der Kleijn <martijn.niji@gmail.com>
+ |              Copyright © 2008 - 2009 Philippe Archambault <philippe.archambault@gmail.com>
+ */
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,400i,500,500i,700');
+@import url('https://fonts.googleapis.com/css?family=Lora:400,700');
+
+/* @start CORE DESIGN */
+*, *:before, *:after{
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+html, body{
+    margin: 0;
+    padding: 0;
+    display: block;
+    font-size: 14px;
+    line-height: 20px;
+    font-family: "Roboto", "Open Sans", Calibri, Arial, sans-serif;
+    background-color: rgb(255, 250, 250);
+}
+a{
+    color: #E65A32;
+    outline: none;
+    text-decoration: none;
+    box-shadow: none;
+    -webkit-box-shadow: none;
+    transition: color 142ms linear;
+    -o-transition: color 142ms linear;
+    -ms-transition: color 142ms linear;
+    -moz-transition: color 142ms linear;
+    -webkit-transition: color 142ms linear;
+}
+a:hover{
+    color: #333;
+    text-decoration: none;
+}
+
+h1, h2, h3, h4, h5, h6{
+    margin: 15px 0;
+    padding: 5px 0;
+    display: block;
+    font-weight: 500;
+}
+h1{
+    font-size: 24px;
+    line-height: 30px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+}
+h2{
+    font-size: 22px;
+    line-height: 28px;
+}
+h3{
+    font-size: 20px;
+    line-height: 26px;
+}
+h4{
+    font-size: 18px;
+    line-height: 24px;
+}
+h5{
+    font-size: 18px;
+    line-height: 24px;
+    font-style: italic;
+}
+h6{
+    font-size: 18px;
+    line-height: 24px;
+    font-weight: 700;
+}
+p{
+    margin: 15px 0;
+}
+/* @end CORE DESIGN */
+
+/* @start BASIC DESIGN */
+.text-left{
+    text-align: left;
+}
+.text-right{
+    text-align: right;
+}
+.text-center{
+    text-align: center;
+}
+.container{
+    width: 1200px;
+    min-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+    display: block;
+}
+/* @end BASIC DESIGN */
+
+/* @start HEADER DESIGN */
+.header{
+    width: 100%;
+    height: 64px;
+    margin: 0;
+    padding: 0;
+    z-index: 50;
+    display: block;
+    position: relative;
+    border-width: 0 0 1px 0;
+    border-style: solid;
+    border-color: rgba(255, 255, 255, 0.25);
+    background-color: rgb(222, 66, 66);
+    box-shadow: 0 1px 1px 1px rgba(0, 0, 0, 0.4);
+    -webkit-box-shadow: 0 1px 1px 1px rgba(0, 0, 0, 0.4);
+}
+.header a.header-title{
+    color: #fff;
+    margin: 0;
+    padding: 15px 15px 0px 15px;
+    display: inline-block;
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 24px;
+    text-transform: uppercase;
+    text-decoration: none;
+}
+.header a.header-title .header-subtitle{
+    margin: -3px 0 0 0;
+    padding: 0 0 15px 0;
+    display: block;
+    font-style: italic;
+    font-size: 14px;
+    line-height: 14px;
+    text-transform: none;
+}
+/* @end HEADER DESIGN */
+
+/* @start NAVIGATION */
+.navigation{
+    width: 100%;
+    height: 40px;
+    margin: 0;
+    padding: 0;
+    z-index: 40;
+    display: block;
+    position: relative;
+    border-width: 0 0 2px 0;
+    border-style: solid;
+    border-color: rgba(10, 10, 10);
+    background-color: rgb(50, 50, 50);
+    background-image: linear-gradient(to bottom, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0) 100%);
+    background-image: -moz-linear-gradient(top, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0) 100%);
+    background-image: -webkit-linear-gradient(top, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0) 100%);
+}
+ul.navi{
+    width: auto;
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+    list-style: none;
+    border-left: 1px solid rgba(0, 0, 0, 0.6);
+    border-right: 1px solid rgba(255, 255, 255, 0.2);
+}
+ul.navi > li.navi-item{
+    float: left;
+    width: auto;
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+    border-left: 1px solid rgba(255, 255, 255, 0.2);
+    border-right: 1px solid rgba(0, 0, 0, 0.6);
+}
+ul.navi > li.navi-item > a{
+    color: rgba(255, 255, 255, 0.75);
+    margin: 0;
+    padding: 10px 15px;
+    display: block;
+    font-size: 14px;
+    font-weight: 500;
+    text-shadow: -1px -1px 0 rgba(0, 0, 0, 0.5);
+    text-transform: uppercase;
+}
+ul.navi > li.navi-item > a:hover{
+    color: #fff;
+    background-color: #333;
+}
+ul.navi > li.navi-item.current > a{
+    color: #fff;
+    text-shadow: 0 0 15px rgba(255, 255, 255, 1);
+    background-color: #111;
+    box-shadow: inset 0 0 7px 3px rgba(0, 0, 0, 0.75);
+    -webkit-box-shadow: inset 0 0 7px 3px rgba(0, 0, 0, 0.75);
+}
+/* @end NAVIGATION */
+
+/* @start CONTENT */
+.content{
+    width: 100%;
+    margin: 0;
+    padding: 30px 0;
+    display: block;
+}
+.content .container{
+    position: relative;
+}
+.content .container:after{
+    clear: both;
+    height: 0;
+    display: block;
+    content: " ";
+    font-size: 0;
+    visibility: hidden;
+}
+.content .content-main{
+    width: 855px;
+    height: 100%;
+    margin: 0;
+    padding: 0 15px 0 0;
+    display: inline-block;
+    vertical-align: top;
+}
+.content .content-main .content-page{
+    margin: 0;
+    padding: 0;
+    display: block;
+}
+.content .content-main .content-page .page-title{
+    color: #fff;
+    margin: 0 15px;
+    padding: 10px 15px;
+    display: inline-block;
+    font-size: 32px;
+    line-height: 50px;
+    font-family: "Lora", "Georgia", "Times New Roman", serif;
+    background-color: #111111;
+    transform: skewX(-15deg);
+    -o-transform: skewX(-15deg);
+    -ms-transform: skewX(-15deg);
+    -moz-transform: skewX(-15deg);
+    -webkit-transform: skewX(-15deg);
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+}
+.content .content-main .content-page .page-title span{
+    margin: 0 10px;
+    padding: 0;
+    display: inline-block;
+    transform: skewX(15deg);
+    -o-transform: skewX(15deg);
+    -ms-transform: skewX(15deg);
+    -moz-transform: skewX(15deg);
+    -webkit-transform: skewX(15deg);
+}
+.content .content-main .content-page .page-content{
+    display: block;
+}
+
+.content .content-aside{
+    float: right;
+    width: 315px;
+    height: 100%;
+    margin: 0;
+    padding: 0 0 0 15px;
+    display: inline-block;
+    vertical-align: top;
+}
+.content .content-aside .sidebar{
+    margin: 0 0 30px 0;
+    padding: 10px 15px;
+    display: block;
+    border: 1px solid rgb(200, 200, 200);
+    background-color: rgb(235, 235, 235);
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+}
+.content .content-aside .sidebar:last-child{
+    margin-bottom: 0;
+}
+.content .content-aside .sidebar h3{
+    color: #555;
+    margin: 0;
+    padding: 5px 10px;
+    display: block;
+    font-size: 16px;
+    line-height: 22px;
+    text-transform: uppercase;
+    border-bottom: 1px solid rgb(185, 185, 185);
+}
+.content .content-aside .sidebar h3 + *{
+    margin: 15px 0;
+    padding: 0 10px;
+}
+.content .content-aside .sidebar h3 + ul{
+    margin: 15px 10px;
+    padding: 0 15px;
+}
+/* @end CONTENT */
+
+/* @start FOOTER */
+.footer{
+    width: 100%;
+    margin: 50px 0 0 0;
+    padding: 30px 0;
+    display: block;
+    border-top: 1px dashed rgb(185, 185, 185);
+}
+.footer .footer-copyright{
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    display: table;
+    border-spacing: 0;
+    border-collapse: collapse;
+}
+.footer .footer-copyright a{
+    color: #777;
+    display: inline-block;
+    line-height: 12px;
+    border-bottom: 1px dashed rgb(185, 185, 185);
+    transition: color 142ms linear, border 142ms linear;
+    -o-transition: color 142ms linear, border 142ms linear;
+    -ms-transition: color 142ms linear, border 142ms linear;
+    -moz-transition: color 142ms linear, border 142ms linear;
+    -webkit-transition: color 142ms linear, border 142ms linear;
+}
+.footer .footer-copyright a:hover{
+    color: #E65A32;
+    border-color: #E65A32;
+}
+.footer .footer-copyright .footer-left,
+.footer .footer-copyright .footer-right{
+    color: #999;
+    width: 50%;
+    margin: 0;
+    padding: 0;
+    display: table-cell;
+    font-size: 12px;
+    line-height: 20px;
+    vertical-align: top;
+}
+.footer .footer-copyright .footer-right{
+    text-align: right;
+}
+/* @end FOOTER */

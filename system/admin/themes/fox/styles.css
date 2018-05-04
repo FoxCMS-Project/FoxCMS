@@ -1,0 +1,15 @@
+/*
+ |	Fox Theme
+ |	@file		./styles.css
+ |	@author		SamBrishes <pytes@gmx.net>
+ |	@version	0.2.2 [0.2.0] - Beta
+ |
+ |	@require	Wolf CMS 0.8.3, CSS3-capable Browser
+ */
+@import url("loader.css");
+
+/* @start PREVENT BACKGROUND COLOR */
+html, body{
+	background: #ececec;
+}
+/* @end PREVENT BACKGROUND COLOR */
