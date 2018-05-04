@@ -35,7 +35,7 @@ Version 0.8.4 (Alpha)
 -   Add: **SnippetController** - The new `_store()` method handles now `_add()` and `_edit()`.
 -   Add: **UserController** - The new `_store()` method handles now `_add()` and `_edit()`.
 -   Update: The complete folder structure has been changed due to easify the migration.
--   Update: The new Version of the ZIP helper Class ([Version 0.2.0](https://www.github.com/FoxCMS/ZIP)).
+-   Update: The new Version of the ZIP helper Class ([Version 0.2.0](https://github.com/SamBrishes/FoxCMS/tree/helpers/zip)).
 -   Update: The new Version of the BigInteger helper class ([Version 1.0.3](https://pear.php.net/package/Math_BigInteger)).
 -   Update: Extract each class of the `Framework.php` file into a single file due to the new format standard.
 -   Update: Each HTML 4 DOCTYPE output has been replaced with the HTML 5 version `<!DOCTYPE html>`.
