@@ -62,7 +62,7 @@
 
                             <table>
                                 <tr>
-                                    <th width="25%"><label for="db-host">Database Type</label></th>
+                                    <th width="25%"><label for="db-type">Database Type</label></th>
                                     <td width="30%">
                                         <select id="db-type" name="db-type">
                                             <?php if(in_array("mysql", $d)){ ?><option value="mysql" <?php selected($c["db-type"], "mysql"); ?>>PDO :: MySQL</option><?php } ?>
