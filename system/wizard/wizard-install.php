@@ -27,7 +27,7 @@
         public function __construct(){
             $user = isset($_GET["step"])? $_GET["step"]: 0;
             while(true){
-                if($this->checkDatabase()){
+                if($this->checkDatabase(false)){
                     if(isset($_SESSION["wizard_install"])){
                         $this->step = 3;
                         $this->user = 3;
@@ -239,11 +239,11 @@
          |  CHECK :: DATABASE
          |  @since  0.8.4
          */
-        public function checkDatabase(){
+        public function checkDatabase($error = true){
             if(!$this->checkConfig()){
                 return false;
             }
-            if(($pdo = Wizard::DB()) === false){
+            if(($pdo = Wizard::DB(NULL, $error)) === false){
                 return false;
             }
             if(!Wizard::DBtables($pdo, array("config", "config_cron", "config_token", "user"))){

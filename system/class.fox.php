@@ -141,7 +141,7 @@
 
             // Check Redirect
             if(CMS_FRONTEND && in_array(HTTPS_MODE, array("always", "frontend")) && !$https){
-                header("Location: https//" . $_SERVER["SERVER_NAME"] . $_SERVER["REQUEST_URI"]);
+                header("Location: https://" . $_SERVER["SERVER_NAME"] . $_SERVER["REQUEST_URI"]);
                 die();
             }
             if(CMS_BACKEND && in_array(HTTPS_MODE, array("always", "backend")) && !$https){

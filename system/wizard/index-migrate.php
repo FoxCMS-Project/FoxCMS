@@ -150,94 +150,98 @@
                             <input type="hidden" name="wizard" value="migrate" />
                             <input type="hidden" name="migrate" value="tothefox" />
 
-                            <h1>General Settings</h1>
-                            <table>
-                                <tr>
-                                    <th width="25%"><label for="fox-public">Public URL</label></th>
-                                    <td width="30%">
-                                        <input type="text" id="fox-public" name="fox-public" value="<?php echo $c["fox-public"]; ?>" />
-                                    </td>
-                                    <td width="45%">The public URL to your foxcms installation.</td>
-                                </tr>
+                            <fieldset>
+                                <legend>General Settings</h1>
+                                <table>
+                                    <tr>
+                                        <th width="25%"><label for="fox-public">Public URL</label></th>
+                                        <td width="30%">
+                                            <input type="text" id="fox-public" name="fox-public" value="<?php echo $c["fox-public"]; ?>" />
+                                        </td>
+                                        <td width="45%">The public URL to your foxcms installation.</td>
+                                    </tr>
 
-                                <tr>
-                                    <th width="25%"><label for="admin-dir">Admin Dir</label></th>
-                                    <td width="30%">
-                                        <input type="text" id="admin-dir" name="admin-dir" value="<?php echo $c["admin-dir"]; ?>" />
-                                    </td>
-                                    <td width="45%">The virtual directory to the backend.</td>
-                                </tr>
+                                    <tr>
+                                        <th width="25%"><label for="admin-dir">Admin Dir</label></th>
+                                        <td width="30%">
+                                            <input type="text" id="admin-dir" name="admin-dir" value="<?php echo $c["admin-dir"]; ?>" />
+                                        </td>
+                                        <td width="45%">The virtual directory to the backend.</td>
+                                    </tr>
 
-                                <tr>
-                                    <th width="25%"><label for="url-suffix">URL Suffix</label></th>
-                                    <td width="30%">
-                                        <input type="text" id="url-suffix" name="url-suffix" value="<?php echo $c["url-suffix"]; ?>" />
-                                    </td>
-                                    <td width="45%">An URL suffix to simulate static pages.</td>
-                                </tr>
+                                    <tr>
+                                        <th width="25%"><label for="url-suffix">URL Suffix</label></th>
+                                        <td width="30%">
+                                            <input type="text" id="url-suffix" name="url-suffix" value="<?php echo $c["url-suffix"]; ?>" />
+                                        </td>
+                                        <td width="45%">An URL suffix to simulate static pages.</td>
+                                    </tr>
 
-                                <tr>
-                                    <th width="25%"><label for="debug-mode">Debug Mode</label></th>
-                                    <td width="30%">
-                                        <select id="debug-mode" name="debug-mode">
-                                            <option value="1" <?php selected($c["debug-mode"], "1"); ?>>Enable</option>
-                                            <option value="0" <?php selected($c["debug-mode"], "0"); ?>>Disable</option>
-                                        </select>
-                                    </td>
-                                    <td width="45%">Enable / Disable the debug mode. (Disable on productive systems!)</td>
-                                </tr>
-                            </table>
+                                    <tr>
+                                        <th width="25%"><label for="debug-mode">Debug Mode</label></th>
+                                        <td width="30%">
+                                            <select id="debug-mode" name="debug-mode">
+                                                <option value="1" <?php selected($c["debug-mode"], "1"); ?>>Enable</option>
+                                                <option value="0" <?php selected($c["debug-mode"], "0"); ?>>Disable</option>
+                                            </select>
+                                        </td>
+                                        <td width="45%">Enable / Disable the debug mode. (Disable on productive systems!)</td>
+                                    </tr>
+                                </table>
+                            </fieldset>
 
-                            <h1>Security Settings</h1>
-                            <table>
-                                <tr>
-                                    <th width="25%"><label for="https-mode">HTTPS Mode</label></th>
-                                    <td width="30%">
-                                        <select id="https-mode" name="https-mode">
-                                            <option value="0" <?php selected($c["https-mode"], "0"); ?>>Disable</option>
-                                            <option value="backend" <?php selected($c["https-mode"], "backend"); ?>>Use on Backend</option>
-                                            <option value="frontend" <?php selected($c["https-mode"], "frontend"); ?>>Use on Frontend</option>
-                                            <option value="always" <?php selected($c["https-mode"], "always"); ?>>Use Always</option>
-                                        </select>
-                                    </td>
-                                    <td width="45%">Enable or Disable the TLS-encrypted HTTP<b>S</b> protocol.</td>
-                                </tr>
+                            <fieldset>
+                                <lagend>Security Settings</h1>
+                                <table>
+                                    <tr>
+                                        <th width="25%"><label for="https-mode">HTTPS Mode</label></th>
+                                        <td width="30%">
+                                            <select id="https-mode" name="https-mode">
+                                                <option value="0" <?php selected($c["https-mode"], "0"); ?>>Disable</option>
+                                                <option value="backend" <?php selected($c["https-mode"], "backend"); ?>>Use on Backend</option>
+                                                <option value="frontend" <?php selected($c["https-mode"], "frontend"); ?>>Use on Frontend</option>
+                                                <option value="always" <?php selected($c["https-mode"], "always"); ?>>Use Always</option>
+                                            </select>
+                                        </td>
+                                        <td width="45%">Enable or Disable the TLS-encrypted HTTP<b>S</b> protocol.</td>
+                                    </tr>
 
-                                <tr>
-                                    <th width="25%"><label for="fox-id">Fox ID</label></th>
-                                    <td width="30%">
-                                        <input type="text" id="fox-id" name="fox-id" value="<?php echo $c["fox-id"]; ?>" />
-                                    </td>
-                                    <td width="45%">A unique Fox ID, which is used for many site-related actions.</td>
-                                </tr>
+                                    <tr>
+                                        <th width="25%"><label for="fox-id">Fox ID</label></th>
+                                        <td width="30%">
+                                            <input type="text" id="fox-id" name="fox-id" value="<?php echo $c["fox-id"]; ?>" />
+                                        </td>
+                                        <td width="45%">A unique Fox ID, which is used for many site-related actions.</td>
+                                    </tr>
 
-                                <tr>
-                                    <th width="25%"><label for="session-key">Session Key</label></th>
-                                    <td width="30%">
-                                        <input type="text" id="session-key" name="session-key" value="<?php echo $c["session-key"]; ?>" />
-                                    </td>
-                                    <td width="45%">A unique Session key for login and user actions.</td>
-                                </tr>
+                                    <tr>
+                                        <th width="25%"><label for="session-key">Session Key</label></th>
+                                        <td width="30%">
+                                            <input type="text" id="session-key" name="session-key" value="<?php echo $c["session-key"]; ?>" />
+                                        </td>
+                                        <td width="45%">A unique Session key for login and user actions.</td>
+                                    </tr>
 
-                                <tr>
-                                    <th width="25%"><label for="cookie-key">Cookie Key</label></th>
-                                    <td width="30%">
-                                        <input type="text" id="cookie-key" name="cookie-key" value="<?php echo $c["cookie-key"]; ?>" />
-                                    </td>
-                                    <td width="45%">A unique Cookie key for login and user actions.</td>
-                                </tr>
+                                    <tr>
+                                        <th width="25%"><label for="cookie-key">Cookie Key</label></th>
+                                        <td width="30%">
+                                            <input type="text" id="cookie-key" name="cookie-key" value="<?php echo $c["cookie-key"]; ?>" />
+                                        </td>
+                                        <td width="45%">A unique Cookie key for login and user actions.</td>
+                                    </tr>
 
-                                <tr>
-                                    <th width="25%"><label for="mod-rewrite">Mod Rewrite</label></th>
-                                    <td width="30%">
-                                        <select id="mod-rewrite" name="mod-rewrite">
-                                            <option value="1" <?php selected($c["mod-rewrite"], "1"); ?>>Enable</option>
-                                            <option value="0" <?php selected($c["mod-rewrite"], "0"); ?>>Disable</option>
-                                        </select>
-                                    </td>
-                                    <td width="45%">Create clean URLs. (Check if your server supports mod_rewrite!)</td>
-                                </tr>
-                            </table>
+                                    <tr>
+                                        <th width="25%"><label for="mod-rewrite">Mod Rewrite</label></th>
+                                        <td width="30%">
+                                            <select id="mod-rewrite" name="mod-rewrite">
+                                                <option value="1" <?php selected($c["mod-rewrite"], "1"); ?>>Enable</option>
+                                                <option value="0" <?php selected($c["mod-rewrite"], "0"); ?>>Disable</option>
+                                            </select>
+                                        </td>
+                                        <td width="45%">Create clean URLs. (Check if your server supports mod_rewrite!)</td>
+                                    </tr>
+                                </table>
+                            </fieldset>
 
                             <p style="margin-top:50px;margin-left:530px;margin-right:0px;">
                                 This step creates the Fox CMS config file within the root directory AND

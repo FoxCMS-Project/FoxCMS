@@ -246,7 +246,7 @@
         DTVMgRm9yayk8YnIgLz4NCiAgICAgICAgICAgICAgICAgICAgICAgIEJhc2ljIEZveCBEZXNpZ24gd3JpdHRlbiBie
         SB0aGUgPGEgaHJlZj0iaHR0cHM6Ly93d3cuZm94Y21zLm9yZyIgdGl0bGU9IkJ1aWxkIHdpdGggRm94IENNUyI+Rm9
         4IENvcmUgVGVhbTwvYT4NCiAgICAgICAgICAgICAgICAgICAgPC9kaXY+DQogICAgICAgICAgICAgICAgPC9kaXY+D
-        QogICAgICAgICAgICA8L2Rpdj4NCiAgICAgICAgPC9kaXY+DQogICAgPC9ib2R5Pg0KPC9odG1sPg=="
+        QogICAgICAgICAgICA8L2Rpdj4NCiAgICAgICAgPC9kaXY+DQogICAgPC9ib2R5Pg0KPC9odG1sPg==";
         $db::insert("layout", array(
             "name"          => "Fox",
             "content"       => base64_decode($string),

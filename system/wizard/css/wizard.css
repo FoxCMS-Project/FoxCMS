@@ -323,6 +323,25 @@ button:disabled, button.disabled, p.buttons a:disabled, p.buttons a.disabled,
 	box-shadow: none;
 	-webkit-box-shadow: none;
 }
+fieldset{
+    margin: 15px 0 30px 0;
+    padding: 10px 15px;
+    display: block;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #d0d0d0;
+    outline: none;
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+    box-shadow: none;
+}
+fieldset legend{
+    margin: 0 10px;
+    padding: 0 10px;
+    display: block;
+    font-size: 18px;
+    line-height: 18px;
+}
 .database-type{
 
 }
@@ -546,7 +565,7 @@ button:disabled, button.disabled, p.buttons a:disabled, p.buttons a.disabled,
 .widget footer{
     width: 100%;
     margin: 0;
-    padding: 15px;
+    padding: 15px 30px;
     display: block;
 }
 .widget header{
