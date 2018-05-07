@@ -1,7 +1,7 @@
 <?php
 /*
- |  FoxCMS      Content Management Simplified <www.foxcms.org>
- |  @file       ./includes/ZIP.php
+ |  A ZipArchive and PK-Zip PHP helper class.
+ |  @file       ./Zip.php
  |  @author     SamBrishes@pytesNET
  |  @version    0.2.0 [0.2.0] - Beta
  |
@@ -12,9 +12,9 @@
  |              Copyright © 2008 - 2009 Philippe Archambault <philippe.archambault@gmail.com>
  */
 /*
- |  The following websites contains all required informations, which were unavoidable for the 
+ |  The following websites contains all required informations, which were unavoidable for the
  |  creation of this class:
- |  
+ |
  |  -   https://pkware.cachefly.net/webdocs/casestudies/APPNOTE.TXT
  |  -   https://users.cs.jmu.edu/buchhofp/forensics/formats/pkzip.html
  |  -   php.net/manual/class.ziparchive.php
@@ -25,19 +25,19 @@
         const VERSION = "\x14\x00";
         const SIGNATURE = "\x50\x4b";
         const COMPRESSION = "\x08\x00";
-        
+
         /*
          |  SETTINGs
          */
         public $zipArchive = false;
         public $compression = 6;
-        
+
         /*
          |  ZIP ARCHIVE
          */
         private $zipFilename;
         private $zipInstance;
-        
+
         /*
          |  FALLBACK
          */
@@ -45,7 +45,7 @@
         private $headers = array();
         private $central = array();
         private $counter = 0;
-        
+
         /*
          |  CONSTRUCTOR
          |  @since  0.2.0
@@ -65,7 +65,7 @@
             }
             $this->compression = ($compression >= -1 && $compression <= 9)? $compression: 6;
         }
-        
+
         /*
          |  DESTRUCTOR
          |  @since  0.2.0
@@ -73,7 +73,7 @@
         public function __destruct(){
             $this->clear(false);
         }
-        
+
         /*
          |  HELPER :: CONVERT UNIX TO DOS TIME
          |  @since  0.2.0
@@ -85,16 +85,16 @@
             if($array["year"] < 1980){
                 $array = getdate(time());
             }
-            
+
             // Return as HEX
             $time = dechex(
-                (($array["year"] - 1980) << 25) | ($array["mon"] << 21) | ($array["mday"] << 16) | 
+                (($array["year"] - 1980) << 25) | ($array["mon"] << 21) | ($array["mday"] << 16) |
                 ($array["hours"] << 11) | ($array["minutes"] << 5)| ($array["seconds"] >> 1)
             );
             $time = $time[6].$time[7].$time[4].$time[5].$time[2].$time[3].$time[0].$time[1];
             return pack("H*", $time);
         }
-        
+
         /*
          |  ADD A FILE
          |  @since  0.1.0
@@ -103,26 +103,26 @@
          |  @param  string  The relative or absolute filepath or the respective file content.
          |  @param  string  The local path within the archive file.
          |  @param  int     The timestamp to use.
-         |  
+         |
          |  @return bool    TRUE on success, FALSE on failure.
          */
         public function addFile($data, $path, $time = 0){
             if((!is_string($data) && !is_numeric($data)) || !is_string($path)){
                 return false;
             }
-            
+
             // Sanitize Data
             if(is_string($data) && file_exists($data) && is_file($data)){
                 $data = file_get_contents($data);
             }
             $path = trim(str_replace("\\", "/", $path), "/");
             $time = $this->hexTime($time);
-            
+
             // Zip Archive
             if($this->zipArchive){
                 return $this->zipInstance->addFromString($path, $data);
             }
-            
+
             // Fallback
             $crcval = crc32($data);
             $length = strlen($data);
@@ -133,7 +133,7 @@
             }
             $gzcval = substr(substr($gzcval, 0, strlen($gzcval) - 4), 2); // Fix CRC Bug
             $gzclen = strlen($gzcval);
-            
+
             /*
              |  LOCAL FILE HEADER
              |  01      SIGNATURE
@@ -150,9 +150,9 @@
              |  12      The main file data value.
              */
             $this->headers[] = implode("", array(
-                self::SIGNATURE . "\x03\x04", 
-                self::VERSION, 
-                self::FLAGS, 
+                self::SIGNATURE . "\x03\x04",
+                self::VERSION,
+                self::FLAGS,
                 self::COMPRESSION,
                 $time,
                 pack("V", $crcval),
@@ -163,7 +163,7 @@
                 $path,
                 $gzcval
             ));
-            
+
             /*
              |  CENTRAL DIRECTORY RECORD
              |  01      SIGNATURE
@@ -185,10 +185,10 @@
              |  17      The relative path / filename inside the archive.
              */
             $this->central[] = implode("", array(
-                self::SIGNATURE . "\x01\x02", 
-                "\x00\x00", 
-                self::VERSION, 
-                self::FLAGS, 
+                self::SIGNATURE . "\x01\x02",
+                "\x00\x00",
+                self::VERSION,
+                self::FLAGS,
                 self::COMPRESSION,
                 $time,
                 pack("V", $crcval),
@@ -203,12 +203,12 @@
                 pack("V", $this->offset),
                 $path
             ));
-            
+
             // Count Offset and Return
             $this->offset += strlen($this->headers[count($this->headers)-1]);
             return true;
         }
-        
+
         /*
          |  ADD MULTIPLE FILES
          |  @since  0.2.0
@@ -226,7 +226,7 @@
             }
             return array_filter(array_values($array));
         }
-        
+
         /*
          |  ADD FOLDER
          |  @since  0.2.0
@@ -245,25 +245,25 @@
             if(!file_exists($path) || !is_dir($path)){
                 return false;
             }
-            
+
             // Chech Path
             $path = str_replace(array("/", "\\"), DIRECTORY_SEPARATOR, realpath($path));
             if(strpos($path, DIRECTORY_SEPARATOR) !== strlen($path)-1){
                 $path .= DIRECTORY_SEPARATOR;
             }
-            
+
             // Check Local
             if(!is_string($local)){
                 $local = "";
             }
             $local = trim(str_replace("\\", "/", $local), "/") . "/";
-            
+
             // Start Flow
             $this->counter = 0;
             $this->addFolderFlow($path, "", $local, !!$recursive, !!$empty);
             return $this->counter;
         }
-        
+
         /*
          |  HELPER :: ADD FOLDER LOOP
          |  @since  0.2.0
@@ -284,7 +284,7 @@
             if(!empty($path)){
                 $path .= DIRECTORY_SEPARATOR;
             }
-            
+
             $count = 0;
             $handle = opendir($base . $path);
             while(($file = readdir($handle)) !== false){
@@ -310,30 +310,30 @@
             closedir($handle);
             return $count;
         }
-        
+
         /*
          |  ADD EMPTY FOLDER
          |  @since  0.2.0
          |
          |  @param  string  The local path structure within the zip file.
-         |  
+         |
          |  @return bool    TRUE on success, FALSE on failure.
          */
         public function addEmptyFolder($path){
             $path = trim(str_replace("\\", "/", $path), "/") . "/";
             $time = $this->hexTime(time());
-            
+
             // ZipArchive
             if($this->zipArchive){
                 return $this->zipInstance->addEmptyDir($path);
             }
-            
+
             // Add Header
             $this->headers[] = implode("", array(
-                self::SIGNATURE . "\x03\x04", 
-                self::VERSION, 
-                self::FLAGS, 
-                "\x00\x00", 
+                self::SIGNATURE . "\x03\x04",
+                self::VERSION,
+                self::FLAGS,
+                "\x00\x00",
                 $time,
                 pack("V", 0),
                 pack("V", 0),
@@ -343,14 +343,14 @@
                 $path,
                 ""
             ));
-            
+
             // Add Central
             $this->central[] = implode("", array(
-                self::SIGNATURE . "\x01\x02", 
-                "\x14\x03", 
-                self::VERSION, 
-                self::FLAGS, 
-                "\x00\x00", 
+                self::SIGNATURE . "\x01\x02",
+                "\x14\x03",
+                self::VERSION,
+                self::FLAGS,
+                "\x00\x00",
                 $time,
                 pack("V", 0),
                 pack("V", 0),
@@ -364,12 +364,12 @@
                 pack("V", $this->offset),
                 $path
             ));
-            
+
             // Count Offset and Return
             $this->offset += strlen($this->headers[count($this->headers)-1]);
             return true;
         }
-        
+
         /*
          |  CLEAR DATA STRINGs
          |  @since  0.1.0
@@ -394,7 +394,7 @@
             $this->central = array();
             return true;
         }
-        
+
         /*
          |  DUMBS OUT THE FILE
          |  @since  0.1.0
@@ -402,19 +402,19 @@
          */
         public function file(){
             $comment = "PK-Zipped with https://www.github.com/SamBrishes/FoxCMS";
-            
+
             // ZipArchive
             if($this->zipArchive){
                 $this->zipInstance->setArchiveComment($comment);
                 $this->zipInstance->close();
-                
+
                 $content = file_get_contents($this->zipFilename);
-                
+
                 $this->zipInstance = new ZipArchive();
                 $this->zipInstance->open($this->zipFilename);
                 return $content;
             }
-            
+
             // Fallback
             $headers = implode("", $this->headers);
             $central = implode("", $this->central);
@@ -436,7 +436,7 @@
             return implode("", array(
                 $headers,
                 $central,
-                self::SIGNATURE . "\x05\x06", 
+                self::SIGNATURE . "\x05\x06",
                 "\x00",
                 "\x00",
                 "\x00",
@@ -449,7 +449,7 @@
                 $comment
             ));
         }
-        
+
         /*
          |  STORE THE ZIP FILE
          |  @since  0.1.0
@@ -464,7 +464,7 @@
             if(file_exists($filename) && !$overwrite){
                 return false;
             }
-            
+
             // Zip Archive
             if($this->zipArchive){
                 if(is_a($this->zipInstance, "ZipArchive")){
@@ -472,18 +472,18 @@
                 }
                 if(@file_put_contents($filename, file_get_contents($this->zipFilename))){
                     @unlink($this->zipFilename);
-                    
+
                     $this->zipFilename = $filename;
                     $this->zipInstance = new ZipArchive();
                     return $this->zipInstance->open($this->zipFilename);
                 }
                 return false;
             }
-            
+
             // Fallback
             return @file_put_contents($filename, $this->file()) !== false;
         }
-        
+
         /*
          |  DOWNLOAD THE FILE
          |  @since  0.1.0

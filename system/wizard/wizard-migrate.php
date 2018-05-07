@@ -331,7 +331,7 @@
             if(file_exists(BASE_DIR . "public") || file_exists(BASE_DIR . "wolf")){
                 return false;
             }
-            if(($pdo = Wizard::DB(NULL, true)) == false){
+            if(($pdo = Wizard::DB(NULL, false)) == false){
                 return false;
             }
             if(Wizard::DBTables($pdo, array("setting", "cron", "secure_token"))){

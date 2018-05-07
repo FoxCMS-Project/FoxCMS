@@ -98,7 +98,7 @@
          |
          |  @return multi   The PDO instance on success, FALSE on failure.
          */
-        static public function DB($data = array(), $error = true){
+        static public function DB($data = array(), $show_error = true){
             if(empty($data)){
                 if(defined("DB_DSN")){
                     $data = array(
@@ -117,7 +117,7 @@
                         "name"      => defined("DB_NAME")? DB_NAME: NULL
                     );
                 } else {
-                    if($error){
+                    if($show_error){
                         self::addError("Not enough data for a DataBase connection.");
                     }
                     return false;
@@ -156,7 +156,7 @@
                 try{
                     $pdo = new PDO($db["dsn"], $db["user"], $db["pass"]);
                 } catch(PDOException $error){
-                    if($error){
+                    if($show_error){
                         self::addError("The DataBase connection failed! :err", array(":err" => $error->getMessage()));
                     }
                     return false;
@@ -167,7 +167,7 @@
             // Try to Connect >> MySQL
             if(isset($db["type"]) && $db["type"] == "mysql"){
                 if(!isset($db["name"]) || !isset($db["user"])){
-                    if($error){
+                    if($show_error){
                         self::addError("The DataBase table name as well as a DataBase username are required!");
                     }
                     return false;
@@ -184,7 +184,7 @@
                 try{
                     $pdo = new PDO($dsn, $db["user"], isset($db["pass"])? $db["pass"]: NULL);
                 } catch(PDOException $error){
-                    if($error){
+                    if($show_error){
                         self::addError("The DataBase connection failed! :err", array(":err" => $error->getMessage()));
                     }
                     return false;
@@ -195,7 +195,7 @@
             // Try to Connect >> PGSQL
             if(isset($db["type"]) && $db["type"] == "pgsql"){
                 if(!isset($db["name"]) ||!isset($db["user"])){
-                    if($error){
+                    if($show_error){
                         self::addError("The DataBase table name as well as a DataBase username are required!");
                     }
                     return false;
@@ -212,7 +212,7 @@
                 try{
                     $pdo = new PDO($dsn, $db["user"], isset($db["pass"])? $db["pass"]: NULL);
                 } catch(PDOException $error){
-                    if($error){
+                    if($show_error){
                         self::addError("The DataBase connection failed! :err", array(":err" => $error->getMessage()));
                     }
                     return false;
@@ -223,7 +223,7 @@
             // Try to Connect >> SQLite
             if(isset($db["type"]) && $db["type"] == "sqlite"){
                 if(!isset($db["name"])){
-                    if($error){
+                    if($show_error){
                         self::addError("The DataBase path to the SQLite3 file is required!");
                     }
                     return false;
@@ -233,7 +233,7 @@
                 try{
                     $pdo = new PDO($dsn);
                 } catch(PDOException $error){
-                    if($error){
+                    if($show_error){
                         self::addError("The DataBase connection failed! :err", array(":err" => $error->getMessage()));
                     }
                     return false;
@@ -241,7 +241,7 @@
                 return $pdo;
             }
 
-            if($error){
+            if($show_error){
                 self::addError("The DataBase connection failed, due to an unknown error!");
             }
             return false;

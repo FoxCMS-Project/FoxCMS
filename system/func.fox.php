@@ -547,6 +547,21 @@
                 debug_table($$type, substr($type, 1));
             }
         }
+
+        debug_table(array(
+            "FOX_PUBLIC"    => FOX_PUBLIC,
+            "PUBLIC_URL"    => PUBLIC_URL,
+            "BASE_DIR"      => BASE_DIR . " (" . file_exists(BASE_DIR). ")",
+            "CONTENT_DIR"   => CONTENT_DIR. " (" . file_exists(CONTENT_DIR). ")",
+            "I18N_DIR"      => I18N_DIR. " (" . file_exists(I18N_DIR). ")",
+            "PLUGINS_DIR"   => PLUGINS_DIR. " (" . file_exists(PLUGINS_DIR). ")",
+            "THEMES_DIR"    => THEMES_DIR. " (" . file_exists(THEMES_DIR). ")",
+            "UPLOADS_DIR"   => UPLOADS_DIR. " (" . file_exists(UPLOADS_DIR). ")",
+            "INCLUDES_DIR"  => INCLUDES_DIR. " (" . file_exists(INCLUDES_DIR). ")",
+            "SYSTEM_DIR"    => SYSTEM_DIR. " (" . file_exists(SYSTEM_DIR). ")",
+            "SYSTEM_DIR / models"       => SYSTEM_DIR. "models (" . file_exists(SYSTEM_DIR . "models" . DS). ")",
+            "SYSTEM_DIR / controllers"  => SYSTEM_DIR. "controllers (" . file_exists(SYSTEM_DIR . "controllers" . DS) . ")"
+        ), "CONSTANTs", "Constant");
         $content = ob_get_contents();
         ob_end_clean();
         print($content);

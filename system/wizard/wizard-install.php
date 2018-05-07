@@ -90,12 +90,11 @@
 
             // Write Configuration
             if($data["install"] == "config"){
+                $_SESSION["wizard_form_config"]  = $data;
                 if(($data = $this->validateConfig($data)) === false){
-                    $_SESSION["wizard_form_config"] = func_get_arg(0);
                     Wizard::quit(URL_PUBLIC . "system/wizard/?wizard=install&step=1");
                 }
                 if($this->writeConfig($data) === false){
-                    $_SESSION["wizard_form_config"] = func_get_arg(0);
                     Wizard::quit(URL_PUBLIC . "system/wizard/?wizard=install&step=1");
                 }
                 Wizard::quit(URL_PUBLIC . "system/wizard/?wizard=install&step=2");
@@ -103,12 +102,11 @@
 
             // Write Database
             if($data["install"] == "database"){
+                $_SESSION["wizard_form_database"]  = $data;
                 if(($data = $this->validateDatabase($data)) === false){
-                    $_SESSION["wizard_form_database"] = func_get_arg(0);
                     Wizard::quit(URL_PUBLIC . "system/wizard/?wizard=install&step=2");
                 }
                 if(($pdo = Wizard::DB()) === false){
-                    $_SESSION["wizard_form_database"] = func_get_arg(0);
                     Wizard::quit(URL_PUBLIC . "system/wizard/?wizard=install&step=2");
                 }
 
@@ -243,7 +241,7 @@
             if(!$this->checkConfig()){
                 return false;
             }
-            if(($pdo = Wizard::DB(NULL, $error)) === false){
+            if(($pdo = Wizard::DB(NULL, false)) === false){
                 return false;
             }
             if(!Wizard::DBtables($pdo, array("config", "config_cron", "config_token", "user"))){

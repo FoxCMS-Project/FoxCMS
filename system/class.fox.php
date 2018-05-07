@@ -168,8 +168,8 @@
 
             // Init and fill AutoLoader
             AutoLoader::init();
-            AutoLoader::addFolder(SYSTEM_ROOT . "models");
-            AutoLoader::addFolder(SYSTEM_ROOT . "controllers");
+            AutoLoader::addFolder(SYSTEM_DIR . "models");
+            AutoLoader::addFolder(SYSTEM_DIR . "controllers");
 
             // End __FUNCTION__ and Return
             define_wolf_constants();

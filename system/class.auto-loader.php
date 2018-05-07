@@ -181,7 +181,7 @@
                     // Validate File
                     $filename = explode("/", $file);
                     $filename = $filename[count($filename)-1];
-                    if(($class = self::validate($filename))){
+                    if(($class = self::validate($filename)) !== false){
                         self::$classes[$class] = $path . "/" . $file;
                         $classes[] = $class;
                     }
@@ -220,15 +220,17 @@
          |  @return void    Throws exception on error!
          */
         static public function load($class){
-            if(isset(self::$classes[$class])){
-                $file = self::$classes[$class];
-                if(file_exists($file)){
-                    self::$loaded[$file] = $class;
-                    require_once($file);
-                    return;
-                }
+            if(!isset(self::$classes[$class])){
+                throw new Exception("The class '{$class}' hasn't been registered yet!");
             }
-            throw new Exception("AutoLoader couldn't find the file for the class: '{$class}'.");
+
+            $file = self::$classes[$class];
+            if(!file_exists($file)){
+                throw new Exception("The file for the class '{$class}' couldn't be found in '{$file}'!");
+            }
+
+            require_once($file);
+            return true;
         }
 
         /*
