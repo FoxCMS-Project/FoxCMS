@@ -38,7 +38,7 @@
             $defaults = I18N_DIR . DEFAULT_LANGUAGE . "-message.php";
             if(!self::$fetch && self::$locale !== DEFAULT_LANGUAGE && file_exists($defaults)){
                 $defaults = include($defaults);
-                self::add($strings, true);
+                self::add($defaults, true);
             }
             self::$fetch = true;
 
