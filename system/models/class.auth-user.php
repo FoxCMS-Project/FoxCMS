@@ -371,10 +371,7 @@
 
             // Wolf CMS
             if($user->salt !== "fox"){
-                use_helper("Hash");
-                $hash = new Crypt_Hash("sha512");
-
-                $compare = bin2hex($hash->hash($password . $user->salt));
+                $compare = hash("sha512", $password . $user->salt);
                 if(function_exists("hash_equals")){
                     $result = hash_equals($user->password, $compare);
                 } else {

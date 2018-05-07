@@ -90,19 +90,20 @@
 
             // Write Configuration
             if($data["install"] == "config"){
-                $_SESSION["wizard_form_config"]  = $data;
+                $_SESSION["wizard_form_config"] = $data;
                 if(($data = $this->validateConfig($data)) === false){
                     Wizard::quit(URL_PUBLIC . "system/wizard/?wizard=install&step=1");
                 }
                 if($this->writeConfig($data) === false){
                     Wizard::quit(URL_PUBLIC . "system/wizard/?wizard=install&step=1");
                 }
+                unset($_SESSION["wizard_form_config"]);
                 Wizard::quit(URL_PUBLIC . "system/wizard/?wizard=install&step=2");
             }
 
             // Write Database
             if($data["install"] == "database"){
-                $_SESSION["wizard_form_database"]  = $data;
+                $_SESSION["wizard_form_database"] = $data;
                 if(($data = $this->validateDatabase($data)) === false){
                     Wizard::quit(URL_PUBLIC . "system/wizard/?wizard=install&step=2");
                 }
@@ -121,6 +122,7 @@
 
                 // Delete and Return
                 $_SESSION["wizard_install"] = true;
+                unset($_SESSION["wizard_form_database"]);
                 Wizard::quit(URL_PUBLIC . "system/wizard/?wizard=install&step=3");
             }
             return false;
