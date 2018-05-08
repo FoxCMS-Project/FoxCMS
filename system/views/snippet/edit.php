@@ -66,7 +66,7 @@
         <?php } else {
             echo ($action == "add")? __("You don't have the Permission to add Snippets!"): __("You don't have the Permission to edit this Snippet!");
         } ?>
-        <a href="<?php get_url("snippet"); ?>"><?php _e("Cancel"); ?></a>
+        <a href="<?php echo get_url("snippet"); ?>"><?php _e("Cancel"); ?></a>
     </p>
 </form>
 

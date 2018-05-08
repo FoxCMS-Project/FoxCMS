@@ -64,11 +64,13 @@
             }
 
             // XSS Clean
-            $_GET     = remove_xss($_GET);
-            $_POST    = remove_xss($_POST);
-            $_COOKIE  = remove_xss($_COOKIE);
-            $_SERVER  = remove_xss($_SERVER);
-            $_SESSION = remove_xss($_SESSION);
+            if(GLOBAL_XSS_FILTER){
+                $_GET     = remove_xss($_GET);
+                $_POST    = remove_xss($_POST);
+                $_COOKIE  = remove_xss($_COOKIE);
+                $_SERVER  = remove_xss($_SERVER);
+                $_SESSION = remove_xss($_SESSION);
+            }
         }
 
         /*

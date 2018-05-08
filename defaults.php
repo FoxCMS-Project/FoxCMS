@@ -193,7 +193,7 @@
      |  reseted in each user-interaction, it only counts if the user does absolutly nothing.
      */
     if(!defined("SESSION_LIFE")){
-        define("SESSION_LIFE",  3600);      // 60 minutes
+        define("SESSION_LIFE", 3600);      // 60 minutes
     }
 
     /*
@@ -282,8 +282,8 @@
      |  SECURITY :: EXPERIMENTAL XSS FILTERING
      |  TRUE to XSS-filter the global variables, FALSE to do it not.
      */
-    if(!defined("GLOBEL_XSS_FILTER")){
-        define("GLOBAL_XSS_FILTER", false);
+    if(!defined("GLOBAL_XSS_FILTER")){
+        define("GLOBAL_XSS_FILTER", true);
     }
 
 

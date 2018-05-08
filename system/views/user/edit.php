@@ -99,7 +99,7 @@
     <p class="buttons">
         <input type="submit" name="commit" value="<?php _e("Save"); ?>" class="button" />
         <?php _e("or"); ?>
-        <a href="<?php get_url("user"); ?>"><?php _e("Cancel"); ?></a>
+        <a href="<?php echo get_url("user"); ?>"><?php _e("Cancel"); ?></a>
     </p>
 </form>
 
