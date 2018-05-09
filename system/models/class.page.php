@@ -1043,6 +1043,7 @@
                     $layout->content_type = "text/html";
                 }
                 header("Content-Type: {$layout->content_type}; charset=" . DEFAULT_CHARSET);
+
                 // @todo Edit
                 eval("?>" . $layout->content);
             }

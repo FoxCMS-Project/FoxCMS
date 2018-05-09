@@ -30,15 +30,18 @@
             $query = self::$db->query("SELECT cron FROM {$table};");
             self::$cronjobs = $query->fetchAll();
 
-            // Trigger Cronjob, when /cron.php is called
+            // Trigger (real) Cronjob, when /cron.php is called
             if(FOXCMS == "cron"){
                 return self::execute();
             }
 
             // Hook POORMANSCRON job on normal page calls
             $cronjob = (int) Setting::get("site-cronjob", time());
-            if(POORMANSCRON && time() - $cronjob >= POORMANSCRON_INTERVAL){
-                Event::add("page_before_execute_layout", array("Cron", "execute"));
+            if(defined("POORMANSCRON") && POORMANSCRON){
+                if($cronjob <= time() - POORMANSCRON_INTERVAL){
+                    Setting::saveFromData("site-cronjob", time());
+                    Event::add("page_before_execute_layout", array("Cron", "execute"));
+                }
             }
         }
 

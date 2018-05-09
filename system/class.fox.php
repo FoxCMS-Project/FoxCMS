@@ -248,7 +248,7 @@
             }
             define("FOX_RENDER", true);
             ob_start();
-
+            
             // The main.php file
             if(array_key_exists("FOX", $_GET)){
                 $path = trim(urldecode($_GET["FOX"]), "/");

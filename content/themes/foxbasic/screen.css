@@ -231,36 +231,22 @@ ul.navi > li.navi-item.current > a{
     display: block;
 }
 .content .content-main .content-page .page-title{
-    color: #fff;
-    margin: 0 15px;
-    padding: 10px 15px;
+    margin: 0 0 15px 0;
+    padding: 0;
+    display: block;
+}
+.content .content-main .content-page .page-title span{
+    color: #555;
+    margin: 0 5px;
+    padding: 5px 30px;
     display: inline-block;
     font-size: 32px;
     line-height: 50px;
-    font-family: "Lora", "Georgia", "Times New Roman", serif;
-    background-color: #111111;
-    transform: skewX(-15deg);
-    -o-transform: skewX(-15deg);
-    -ms-transform: skewX(-15deg);
-    -moz-transform: skewX(-15deg);
-    -webkit-transform: skewX(-15deg);
-    border-radius: 5px;
-    -webkit-border-radius: 5px;
-}
-.content .content-main .content-page .page-title span{
-    margin: 0 10px;
-    padding: 0;
-    display: inline-block;
-    transform: skewX(15deg);
-    -o-transform: skewX(15deg);
-    -ms-transform: skewX(15deg);
-    -moz-transform: skewX(15deg);
-    -webkit-transform: skewX(15deg);
+    border-bottom: 1px solid #777;
 }
 .content .content-main .content-page .page-content{
     display: block;
 }
-
 .content .content-aside{
     float: right;
     width: 315px;

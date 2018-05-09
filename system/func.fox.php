@@ -379,7 +379,7 @@
      |  @return multi   The respective content on success, FALSE on failure,
      |                  NULL if cURL nor allow_url_fopen are allowed on the server.
      */
-    function url_get_contents($url, $timeout = 60, $user_agent = NULL){
+    function url_get_contents($url, $timeout = 10, $user_agent = NULL){
         if(empty($user_agent)){
             $user_agent = "PHP/Fox CMS v." . FOX_VERSION;
         }
@@ -390,9 +390,10 @@
             curl_setopt($curl, CURLOPT_URL, $url);
             curl_setopt($curl, CURLOPT_HEADER, false);
             curl_setopt($curl, CURLOPT_TIMEOUT, $timeout);
+            curl_setopt($curl, CURLOPT_NOSIGNAL, true);
             curl_setopt($curl, CURLOPT_USERAGENT, $user_agent);
             curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
-            curl_setopt($curl, CURLOPT_CONNECTTIMEOUT, $timeout);
+            curl_setopt($curl, CURLOPT_CONNECTTIMEOUT, 0);
             $result = curl_exec($curl);
             $status = curl_getinfo($curl, CURLINFO_HTTP_CODE);
             curl_close($curl);

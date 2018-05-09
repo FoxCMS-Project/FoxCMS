@@ -136,7 +136,7 @@
      |  The duration of an update check in seconds, before he gets timeouted.
      */
     if(!defined("UPDATER_TIMEOUT")){
-        define("UPDATER_TIMEOUT", 30);
+        define("UPDATER_TIMEOUT", 3);
     }
 
     /*

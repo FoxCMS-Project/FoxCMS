@@ -22,10 +22,18 @@
         <meta charset="utf-8" />
         <title><?php echo $this->getTitle(); ?> | Fox CMS Administration</title>
 
+        <style type="text/css">
+            .placeholder{
+                color: #363636;
+                height: 2.4em;
+                line-height: 1.2em;
+                border: 1px solid #fcefa1;
+                background-color: #fbf9ee;
+            }
+        </style>
         <link type="text/css" rel="stylesheet" href="<?php echo get_theme_path("../../css/admin.css"); ?>" media="screen" />
         <link type="text/css" rel="stylesheet" href="<?php echo get_theme_path("../../markitup/slins/simple/style.css"); ?>" media="screen" />
         <link type="text/css" rel="stylesheet" href="<?php echo get_theme_path("styles.css"); ?>" media="screen" />
-
         <?php
             $style = '<link type="text/css" rel="stylesheet" href="%s" media="screen" />';
             foreach(Plugin::$plugins AS $plugin_id => $plugin){
@@ -37,15 +45,6 @@
                 printf($style, PLUGINS_HTML . $plugin_id . "/" . $file);
             }
         ?>
-        <style type="text/css">
-            .placeholder{
-                color: #363636;
-                height: 2.4em;
-                line-height: 1.2em;
-                border: 1px solid #fcefa1;
-                background-color: #fbf9ee;
-            }
-        </style>
 
         <script type="text/javascript">
             var FoxCMS = {
