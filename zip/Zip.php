@@ -17,7 +17,7 @@
  |  
  |  -   https://pkware.cachefly.net/webdocs/casestudies/APPNOTE.TXT
  |  -   https://users.cs.jmu.edu/buchhofp/forensics/formats/pkzip.html
- |  -   php.net/manual/class.ziparchive.php
+ |  -   https://php.net/manual/class.ziparchive.php
  */
 
     class Zip{
