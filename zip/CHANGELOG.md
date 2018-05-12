@@ -1,6 +1,15 @@
 CHANGELOG
 =========
 
+Version 0.2.1
+-------------
+-   Add: The new `msDOSTime()` function, which replaces the old `hexTime()`, and checks now for the min and max dos stamps.
+-   Update: Merged both `substr()` calls for the CRC-32 checksum fix.
+-   Update: Replace "array() - implode()" method into a "just-write" walk.
+-   Update: The `addFile()` method allows now a fourth parameter to set a file comment.
+-   Update: The `addFiles()` method allows now the $time and $comment parameters too.
+-   Update: The `addEmptyFolder()` method allows now the $time and $comment parameters too.
+
 Version 0.2.0
 -------------
 -   Info: Fork of the ZIP Helper class, written by Philippe Archambault @ FrogCMS.
