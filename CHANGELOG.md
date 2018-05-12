@@ -39,7 +39,7 @@ Version 0.8.4 (Alpha)
 -   Update: The new Version of the Hash helper class (Marked as deprecated!).
 -   Update: The new Version of the Kses helper class ([Version 0.3.0](https://pear.php.net/package/Kses)).
 -   Update: The new Version of the Validate helper Class ([Version 0.2.0](https://github.com/SamBrishes/FoxCMS/tree/helpers/validate)).
--   Update: The new Version of the ZIP helper Class ([Version 0.2.0](https://github.com/SamBrishes/FoxCMS/tree/helpers/zip)).
+-   Update: The new Version of the ZIP helper Class ([Version 0.2.1](https://github.com/SamBrishes/FoxCMS/tree/helpers/zip)).
 -   Update: Extract each class of the `Framework.php` file into a single file due to the new format standard.
 -   Update: Each HTML 4 DOCTYPE output has been replaced with the HTML 5 version `<!DOCTYPE html>`.
 -   Update: **General Function** The `remove_xss()` function has been completely changed.

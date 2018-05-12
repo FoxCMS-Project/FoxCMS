@@ -1,9 +1,9 @@
 <?php
 /*
- |  A ZipArchive and PK-Zip PHP helper class.
- |  @file       ./Zip.php
+ |  A ZipArchive and PKZIP PHP helper class.
+ |  @file       ./includes/ZIP.php
  |  @author     SamBrishes@pytesNET
- |  @version    0.2.0 [0.2.0] - Beta
+ |  @version    0.2.1 [0.2.1] - Beta
  |
  |  @license    GNU GPL v3
  |  @copyright  Copyright © 2015 - 2018 SamBrishes, pytesNET <pytes@gmx.net>
@@ -17,7 +17,7 @@
  |
  |  -   https://pkware.cachefly.net/webdocs/casestudies/APPNOTE.TXT
  |  -   https://users.cs.jmu.edu/buchhofp/forensics/formats/pkzip.html
- |  -   php.net/manual/class.ziparchive.php
+ |  -   https://php.net/manual/class.ziparchive.php
  */
 
     class Zip{
@@ -76,37 +76,40 @@
 
         /*
          |  HELPER :: CONVERT UNIX TO DOS TIME
-         |  @since  0.2.0
+         |  @since  0.2.1
          |
          |  @param  int     The respective timestamp as INTEGER.
          */
-        private function hexTime($time){
+        protected function msDOSTime($time){
             $array = getdate((is_int($time) && $time > 0)? $time: time());
-            if($array["year"] < 1980){
+            if($array["year"] < 1980 || $array["year"] > 2107){
                 $array = getdate(time());
             }
 
-            // Return as HEX
-            $time = dechex(
-                (($array["year"] - 1980) << 25) | ($array["mon"] << 21) | ($array["mday"] << 16) |
-                ($array["hours"] << 11) | ($array["minutes"] << 5)| ($array["seconds"] >> 1)
+            // Return as DEC
+            return (
+                (($array["year"]-1980 << 25)) |
+                (($array["mon"]       << 21)) |
+                (($array["mday"]      << 16)) |
+                (($array["hours"]     << 11)) |
+                (($array["minutes"]   <<  5)) |
+                (($array["seconds"]   >>  1))
             );
-            $time = $time[6].$time[7].$time[4].$time[5].$time[2].$time[3].$time[0].$time[1];
-            return pack("H*", $time);
         }
 
         /*
          |  ADD A FILE
          |  @since  0.1.0
-         |  @update 0.2.0
+         |  @update 0.2.1
          |
          |  @param  string  The relative or absolute filepath or the respective file content.
          |  @param  string  The local path within the archive file.
          |  @param  int     The timestamp to use.
+         |  @param  string  The optional file comment or just an empty string.
          |
          |  @return bool    TRUE on success, FALSE on failure.
          */
-        public function addFile($data, $path, $time = 0){
+        public function addFile($data, $path, $time = 0, $comment = ""){
             if((!is_string($data) && !is_numeric($data)) || !is_string($path)){
                 return false;
             }
@@ -116,7 +119,7 @@
                 $data = file_get_contents($data);
             }
             $path = trim(str_replace("\\", "/", $path), "/");
-            $time = $this->hexTime($time);
+            $time = $this->msDOSTime($time);
 
             // Zip Archive
             if($this->zipArchive){
@@ -131,7 +134,7 @@
             } else {
                 $gzcval = gzcompress($data, $this->compression);
             }
-            $gzcval = substr(substr($gzcval, 0, strlen($gzcval) - 4), 2); // Fix CRC Bug
+            $gzcval = substr($gzcval, 2, strlen($gzcval) - 6); // Fix CRC-32 Bug
             $gzclen = strlen($gzcval);
 
             /*
@@ -149,20 +152,19 @@
              |  11      The relative path / filename inside the archive.
              |  12      The main file data value.
              */
-            $this->headers[] = implode("", array(
-                self::SIGNATURE . "\x03\x04",
-                self::VERSION,
-                self::FLAGS,
-                self::COMPRESSION,
-                $time,
-                pack("V", $crcval),
-                pack("V", $gzclen),
-                pack("V", $length),
-                pack("v", strlen($path)),
-                pack("v", 0),
-                $path,
-                $gzcval
-            ));
+            $this->headers[] =
+                self::SIGNATURE . "\x03\x04" .
+                self::VERSION .
+                self::FLAGS .
+                self::COMPRESSION .
+                pack("V", $time) .
+                pack("V", $crcval) .
+                pack("V", $gzclen) .
+                pack("V", $length) .
+                pack("v", strlen($path)) .
+                pack("v", 0) .
+                $path .
+                $gzcval;
 
             /*
              |  CENTRAL DIRECTORY RECORD
@@ -183,26 +185,27 @@
              |  15      External file attributes.
              |  16      Offset of the local file header.
              |  17      The relative path / filename inside the archive.
+             |  18      The file comment.
              */
-            $this->central[] = implode("", array(
-                self::SIGNATURE . "\x01\x02",
-                "\x00\x00",
-                self::VERSION,
-                self::FLAGS,
-                self::COMPRESSION,
-                $time,
-                pack("V", $crcval),
-                pack("V", $gzclen),
-                pack("V", $length),
-                pack("v", strlen($path)),
-                pack("v", 0),
-                pack("v", 0),
-                pack("v", 0),
-                pack("v", 0),
-                pack("V", 32),
-                pack("V", $this->offset),
-                $path
-            ));
+            $this->central[] =
+                self::SIGNATURE . "\x01\x02" .
+                "\x00\x00" .
+                self::VERSION .
+                self::FLAGS .
+                self::COMPRESSION .
+                pack("V", $time) .
+                pack("V", $crcval) .
+                pack("V", $gzclen) .
+                pack("V", $length) .
+                pack("v", strlen($path)) .
+                pack("v", 0) .
+                pack("v", strlen($comment)) .
+                pack("v", 0) .
+                pack("v", 0) .
+                pack("V", 32) .
+                pack("V", $this->offset) .
+                $path .
+                $comment;
 
             // Count Offset and Return
             $this->offset += strlen($this->headers[count($this->headers)-1]);
@@ -212,12 +215,15 @@
         /*
          |  ADD MULTIPLE FILES
          |  @since  0.2.0
+         |  @update 0.2.1
          |
          |  @param  array   Multiple 'local/file/path' => "filepath/or/filecontent" ARRAY pairs.
+         |  @param  int     The timestamp to use for all files.
+         |  @param  string  The optional comment or just an empty string for alle respective files.
          |
          |  @return int     The number of successfully added elements / files.
          */
-        public function addFiles($array){
+        public function addFiles($array, $time = 0, $comment = ""){
             if(!is_array($array)){
                 return false;
             }
@@ -314,14 +320,17 @@
         /*
          |  ADD EMPTY FOLDER
          |  @since  0.2.0
+         |  @update 0.2.1
          |
          |  @param  string  The local path structure within the zip file.
+         |  @param  int     The timestamp to use.
+         |  @param  string  The optional file comment or just an empty string.
          |
          |  @return bool    TRUE on success, FALSE on failure.
          */
-        public function addEmptyFolder($path){
+        public function addEmptyFolder($path, $time = 0, $comment = ""){
             $path = trim(str_replace("\\", "/", $path), "/") . "/";
-            $time = $this->hexTime(time());
+            $time = $this->msDOSTime($time);
 
             // ZipArchive
             if($this->zipArchive){
@@ -329,41 +338,40 @@
             }
 
             // Add Header
-            $this->headers[] = implode("", array(
-                self::SIGNATURE . "\x03\x04",
-                self::VERSION,
-                self::FLAGS,
-                "\x00\x00",
-                $time,
-                pack("V", 0),
-                pack("V", 0),
-                pack("V", 0),
-                pack("v", strlen($path)),
-                pack("v", 0),
-                $path,
-                ""
-            ));
+            $this->headers[] =
+                self::SIGNATURE . "\x03\x04" .
+                self::VERSION .
+                self::FLAGS .
+                "\x00\x00" .
+                pack("V", $time) .
+                pack("V", 0) .
+                pack("V", 0) .
+                pack("V", 0) .
+                pack("v", strlen($path)) .
+                pack("v", 0) .
+                $path .
+                "";
 
             // Add Central
-            $this->central[] = implode("", array(
-                self::SIGNATURE . "\x01\x02",
-                "\x14\x03",
-                self::VERSION,
-                self::FLAGS,
-                "\x00\x00",
-                $time,
-                pack("V", 0),
-                pack("V", 0),
-                pack("V", 0),
-                pack("v", strlen($path)),
-                pack("v", 0),
-                pack("v", 0),
-                pack("v", 0),
-                pack("v", 0),
-                "\x00\x00\xFF\x41",
-                pack("V", $this->offset),
-                $path
-            ));
+            $this->central[] =
+                self::SIGNATURE . "\x01\x02" .
+                "\x14\x03" .
+                self::VERSION .
+                self::FLAGS .
+                "\x00\x00" .
+                pack("V", $time) .
+                pack("V", 0) .
+                pack("V", 0) .
+                pack("V", 0) .
+                pack("v", strlen($path)) .
+                pack("v", 0) .
+                pack("v", strlen($comment)) .
+                pack("v", 0) .
+                pack("v", 0) .
+                "\x00\x00\xFF\x41" .
+                pack("V", $this->offset) .
+                $path .
+                $comment;
 
             // Count Offset and Return
             $this->offset += strlen($this->headers[count($this->headers)-1]);
@@ -398,10 +406,10 @@
         /*
          |  DUMBS OUT THE FILE
          |  @since  0.1.0
-         |  @update 0.2.0
+         |  @update 0.2.1
          */
         public function file(){
-            $comment = "PK-Zipped with https://www.github.com/SamBrishes/FoxCMS";
+            $comment = "PKZipped with https://github.com/SamBrishes/FoxCMS/tree/helpers/zip";
 
             // ZipArchive
             if($this->zipArchive){
@@ -433,21 +441,18 @@
              |  11      The length of the following comment field.
              |  12      The archive comment.
              */
-            return implode("", array(
-                $headers,
-                $central,
-                self::SIGNATURE . "\x05\x06",
-                "\x00",
-                "\x00",
-                "\x00",
-                "\x00",
-                pack("v", count($this->central)),
-                pack("v", count($this->central)),
-                pack("V", strlen($central)),
-                pack("V", strlen($headers)),
-                pack("v", strlen($comment)),
-                $comment
-            ));
+            return $headers . $central .
+                self::SIGNATURE . "\x05\x06" .
+                "\x00" .
+                "\x00" .
+                "\x00" .
+                "\x00" .
+                pack("v", count($this->central)) .
+                pack("v", count($this->central)) .
+                pack("V", strlen($central)) .
+                pack("V", strlen($headers)) .
+                pack("v", strlen($comment)) .
+                $comment;
         }
 
         /*
