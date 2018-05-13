@@ -31,10 +31,12 @@ Plugin::setInfos(array(
     'update_url'  => 'http://www.wolfcms.org/plugin-versions.xml'
 ));
 
-// Add the plugin's tab and controller
-Plugin::addController('archive', '', 'admin_view', false);
+    if(Plugin::isEnabled("skeleton")){
+        // Add the plugin's tab and controller
+        Plugin::addController('archive', '', 'admin_view', false);
 
-Behavior::add('archive', 'archive/archive.php');
-Behavior::add('archive_day_index', 'archive/archive.php');
-Behavior::add('archive_month_index', 'archive/archive.php');
-Behavior::add('archive_year_index', 'archive/archive.php');
+        Behavior::add('archive', 'archive/archive.php');
+        Behavior::add('archive_day_index', 'archive/archive.php');
+        Behavior::add('archive_month_index', 'archive/archive.php');
+        Behavior::add('archive_year_index', 'archive/archive.php');
+    }

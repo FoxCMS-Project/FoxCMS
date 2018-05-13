@@ -64,7 +64,7 @@ class Archive {
                 break;
 
             default:
-                pageNotFound();
+                fox_404();
         }
     }
 
@@ -83,13 +83,13 @@ class Archive {
 
             $this->page->time = mktime(0, 0, 0, $month, $day, (int) $params[0]);
         } else {
-            pageNotFound();
+            fox_404();
         }
     }
 
     private function _displayPage($slug) {
         if (!$this->page = Page::findBySlug($slug, $this->page, true))
-            pageNotFound($slug);
+            fox_404($slug);
     }
 
     function get() {
@@ -97,10 +97,10 @@ class Archive {
         foreach ($this->params as $param) {
             if (!is_numeric($param)) {
                 // TODO replace by decent error message
-                pageNotFound();
+                fox_404();
             }
         }
-        
+
         $date = join('-', $this->params);
 
         $pages = $this->page->parent()->children(array(
@@ -187,7 +187,7 @@ class PageArchive extends Page {
         if ($use_date === '1') {
             return BASE_URL . trim($this->parent()->path() . date('/Y/m/d/', strtotime($this->created_on)) . $this->slug, '/') . ($this->path() != '' ? URL_SUFFIX : '');
         }
-        elseif ($use_date === '0') {
+        else {
             return BASE_URL . trim($this->parent()->path() . '/' . $this->slug, '/') . ($this->path() != '' ? URL_SUFFIX : '');
         }
     }
