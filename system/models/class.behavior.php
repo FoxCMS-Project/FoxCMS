@@ -17,6 +17,7 @@
         /*
          |  GLOBAL VARs
          */
+        static private $ordered = false;
         static private $behaviors = array();
         static private $loaded = array();
 
@@ -26,25 +27,35 @@
          |
          |  @param  string  The behavior ID.
          |  @param  string  The relative path to the file starting at the plugin_id.
-         |                  The absolute path to the file.
+         |                  The absolute path to the file or just NULL.
+         |  @param  string  The behavior title of NULL to use the ID.
          |
          |  @return bool    TRUE if the behavior/file could be added, FALSE if not.
          */
-        static public function add($behavior_id, $file){
-            if(strpos($file, "content/plugins") === false){
-                $file = PLUGINS_DIR . $file;
+        static public function add($behavior_id, $file, $title = NULL){
+            if(!is_null($file)){
+                if(strpos($file, "content/plugins") === false){
+                    $file = PLUGINS_DIR . $file;
+                }
+                $file = realpath($file);
             }
-            $file = realpath($file);
 
             // Check Params
-            if(!file_exists($file) || !is_file($file)){
+            if(!is_null($file) && (!file_exists($file) || !is_file($file))){
                 return false;
             }
             if(array_key_exists($behavior_id, self::$behaviors)){
                 return false;
             }
+            if(empty($title) || !is_string($title)){
+                $title = Inflector::humanize($behavior_id);
+            }
 
-            self::$behaviors[$behavior_id] = $file;
+            // Add Behavior
+            self::$behaviors[$behavior_id] = array(
+                "file"  => $file,
+                "title" => $title
+            );
             return true;
         }
 
@@ -71,7 +82,15 @@
          |  @return array   An array with all behavior ids.
          */
         static public function findAll(){
-            return array_keys(self::$behaviors);
+            if(!self::$ordered){
+                $order = array();
+                foreach(self::$behaviors AS $key => $value){
+                    $order[$key] = $value["title"];
+                }
+                array_multisort($order, SORT_ASC, self::$behaviors);
+                self::$ordered = true;
+            }
+            return self::$behaviors;
         }
 
         /*
@@ -85,19 +104,26 @@
          |  @return multi   The filter class object, FALSE on failure.
          */
         static public function load($behavior_id, &$page, $params = array()){
-            if(!isset(self::$loaded[$behavior_id])){
-                if(empty(self::$behaviors[$behavior_id])){
-                    return false;
-                }
-                if(!file_exists(self::$behaviors[$behavior_id])){
-                    return false;
-                }
-                include_once(self::$behaviors[$behavior_id]);
+            if(!isset(self::$behaviors[$behavior_id])){
+                return false;
+            }
+            $behavior = &self::$behaviors[$behavior_id];
 
-                // Check Class
+            // Check Behavior
+            if($behavior["file"] === NULL){
+                return false;
+            }
+
+            // Load Behavior
+            if(!isset($behavior["class"])){
+                if(file_exists($behavior["file"])){
+                    include_once($behavior["file"]);
+                }
+
+                // Get Class
                 $class = Inflector::camelize($behavior_id);
                 if(!class_exists($class, false)){
-                    $class = str_replace("\\", "/", self::$behaviors[$behavior_id]);
+                    $class = str_replace("\\", "/", $behavior["file"]);
                     $class = trim(substr($class, strrpos($class)), "/");
 
                     $class = Inflector::camelize($class);
@@ -105,14 +131,9 @@
                         return false;
                     }
                 }
-
-                // Add Behavior
-                self::$loaded[$behavior_id] = array(
-                    "file"      => self::$behaviors[$behavior_id],
-                    "class"     => $class
-                );
+                $behavior["class"] = $class;
             }
-            return new self::$loaded[$behavior_id]["class"]($page, $params);
+            return new $behavior["class"]($page, $params);
         }
 
         /*

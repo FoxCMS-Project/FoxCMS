@@ -230,6 +230,11 @@
             } else {
                 I18n::setLocale(Setting::get("default-language", DEFAULT_LANGUAGE));
             }
+
+            // Register Fox Defaults
+            Behavior::add("page_not_found", NULL, __("404 - Page not Found"));
+
+            //
             Plugin::init();
             Theme::init();
             Flash::init();
@@ -301,7 +306,7 @@
             if(is_a($page, "Page")){
                 if($page->status_id == Page::STATUS_PREVIEW){
                     if(!AuthUser::isLoggedIn() || !AuthUser::hasPermission("page_view")){
-                        page404($path);
+                        fox_404($path);
                     }
                 }
                 if($page->getLoginNeeded() == Page::LOGIN_REQUIRED){
@@ -314,7 +319,7 @@
                 Event::apply("page_found", $page);
                 $page->_executeLayout();
             } else {
-                page404($path);
+                fox_404($path);
             }
 
             // End __FUNCTION__ and Return

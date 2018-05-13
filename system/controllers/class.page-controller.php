@@ -300,6 +300,7 @@
 
             // Validata Slug
             $data["slug"] = isset($data["slug"])? strtolower(trim($data["slug"])): "";
+            var_dump($data["slug"]);
             if(empty($data["slug"]) && $page->id > 1){
                 Flash::set("error", __("You must specify a slug for this Page!"));
                 return false;
@@ -320,7 +321,7 @@
                 return false;
             }
 
-            // Validate Behaviour
+            // Validate Behavior
             if(!empty($data["behavior_id"]) && preg_match("#[^a-z0-9\_\.\-]#", $data["behavior_id"])){
                 Flash::set("error", __("Your Behaviour ID contains invalid characters (a-z, 0-9, _, ., -)!"));
                 return false;

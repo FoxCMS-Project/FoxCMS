@@ -413,13 +413,21 @@
      |
      |  @return void
      */
-    function page404($url = NULL){
+    function fox_404($url = NULL){
         Event::apply("page_not_found", $url);
 
+        // Set Header
         header("HTTP/1.0 404 Not Found");
         header("Status: 404 Not Found");
-        $view = new View("404");
-        $view->display();
+
+        // Load Page / View
+        $page = Page::findByBehavior("page_not_found");
+        if(is_a($page, "Page")){
+            $page->_executeLayout();
+        } else {
+            $page = new View("404");
+            $page->display();
+        }
         die();
     }
 
@@ -427,193 +435,16 @@
      |  ADVANCED :: EXCEPTION HANDLING
      |  @since  0.8.4
      */
-    function framework_exception_handler($e){
+    function fox_exception_handler($error){
         if(!DEBUG_MODE){
-            return page404();
+            return fox_404();
         }
 
         ob_start();
-        ?>
-            <style type="text/css">
-                h1, h2, h3, h4, h5, h6{
-                    font-family: Verdana, Arial, sans-serif;
-                    font-weight: lighter;
-                }
-                p{
-                    font-family: Verdana, Arial, sans-serif;
-                    font-weight: lighter;
-                }
-                pre{
-                    line-height: 20px;
-                    font-family: Verdana, Arial, sans-serif;
-                    font-weight: lighter;
-                }
-                table{
-                    width: 90%;
-                    margin: 20px auto;
-                    overflow: hidden;
-                    border-spacing: 0;
-                    border-collapse: separate;
-                    border: 1px solid #2a2520;
-                    border-radius: 3px;
-                    -webkit-border-radius: 3px;
-                }
-                table tr th{
-                    color: #fff;
-                    padding: 10px 15px;
-                    text-align: center;
-                    font-weight: normal;
-                    font-family: Verdana, Arial, sans-serif;
-                    background-color: #2a2520;
-                }
-                table tr td{
-                    padding: 10px 15px;
-                    font-family: Verdana;
-                    font-weight: lighter;
-                    vertical-align: top;
-                    border-bottom: 1px solid #d0d0d0;
-                }
-                table thead tr td{
-                    border-bottom-color: #2a2520;
-                }
-                table tbody tr:nth-child(odd) td{
-                    background: #ffffff;
-                }
-                table tbody tr:nth-child(even) td{
-                    background: #e8e8e8;
-                }
-                table tbody tr:last-child td{
-                    border-bottom: 0;
-                }
-            </style>
-
-            <h1>Fox CMS <?php echo FOX_VERSION ?> (<?php echo FOX_STATUS; ?>) - Uncaught <?php echo get_class($e); ?></h1>
-            <h2>Description</h2>
-            <p><?php echo $e->getMessage(); ?></p>
-
-            <h2>Location</h2>
-            <p>Exception thrown on line <code><?php $e->getLine(); ?></code> in <code><?php $e->getFile(); ?></code></p>
-
-            <h2>Strack Trace</h2>
-            <?php
-                $traces = $e->getTrace();
-                if(count($traces) > 1){
-                    $level = 0;
-                    ?><pre><?php
-                        foreach(array_reverse($traces) AS $trace){
-                            if(isset($trace["class"])){
-                                echo $trace["class"] . "&rarr;";
-                            }
-
-                            $args = array();
-                            if(!empty($trace["args"])){
-                                foreach($trace["args"] AS $arg){
-                                    if(is_null($arg)){
-                                        $args[] = "NULL";
-                                    } else if(is_array($arg)){
-                                        $args[] = "array(". sizeof($arg) .")";
-                                    } else if(is_object($arg)){
-                                        $args[] = get_class($arg) . "Object";
-                                    } else if(is_bool($arg)){
-                                        $args[] = ($arg)? "true": "false";
-                                    } else if(is_integer($arg)){
-                                        $args[] = "(int) $arg";
-                                    } else if(is_float($arg)){
-                                        $args[] = "(float) $arg";
-                                    } else {
-                                        $arg = htmlspecialchars(substr($arg, 0, 112));
-                                        $arg = (strlen($arg) >= 112)? "$arg...": $arg;
-                                        $args[] = "(string) '{$arg}'";
-                                    }
-                                }
-                            }
-                        }
-                        ?>
-                            <strong><?php echo $trace["function"]; ?></string> (<?php echo implode(", ", $args); ?>)
-                            on line <code><?php echo isset($trace["line"])? $trace["line"]: "Unknown"; ?></code>
-                            in file <code><?php echo isset($trace["file"])? $trace["file"]: "Unknown"; ?></code>
-                            <?php echo str_repeat("    ", ++$level); ?>
-                        <?php
-                    ?></pre><hr /><?php
-                }
-            ?>
-        <?php
-
-        $dispatcher_status = Dispatcher::getStatus();
-        $dispatcher_status["request method"] = request_method();
-        debug_table($dispatcher_status, "Dispatcher Status");
-
-        foreach(array("_GET", "_POST", "_COOKIE", "_SERVER") AS $type){
-            if(!empty($$type)){
-                debug_table($$type, substr($type, 1));
-            }
-        }
-
-        debug_table(array(
-            "FOX_PUBLIC"    => FOX_PUBLIC,
-            "PUBLIC_URL"    => PUBLIC_URL,
-            "BASE_DIR"      => BASE_DIR . " (" . file_exists(BASE_DIR). ")",
-            "CONTENT_DIR"   => CONTENT_DIR. " (" . file_exists(CONTENT_DIR). ")",
-            "I18N_DIR"      => I18N_DIR. " (" . file_exists(I18N_DIR). ")",
-            "PLUGINS_DIR"   => PLUGINS_DIR. " (" . file_exists(PLUGINS_DIR). ")",
-            "THEMES_DIR"    => THEMES_DIR. " (" . file_exists(THEMES_DIR). ")",
-            "UPLOADS_DIR"   => UPLOADS_DIR. " (" . file_exists(UPLOADS_DIR). ")",
-            "INCLUDES_DIR"  => INCLUDES_DIR. " (" . file_exists(INCLUDES_DIR). ")",
-            "SYSTEM_DIR"    => SYSTEM_DIR. " (" . file_exists(SYSTEM_DIR). ")",
-            "SYSTEM_DIR / models"       => SYSTEM_DIR. "models (" . file_exists(SYSTEM_DIR . "models" . DS). ")",
-            "SYSTEM_DIR / controllers"  => SYSTEM_DIR. "controllers (" . file_exists(SYSTEM_DIR . "controllers" . DS) . ")"
-        ), "CONSTANTs", "Constant");
+        include_once("views/exception.php");
         $content = ob_get_contents();
         ob_end_clean();
         print($content);
+        die();
     }
-    set_exception_handler("framework_exception_handler");
-
-    /*
-     |  DEBUG TABLE
-     |  @since  0.8.4
-     */
-    function debug_table($array, $label, $key_label = "Variable", $value_label = "Value"){
-        ?>
-            <table>
-                <thead>
-                    <tr>
-                        <th colspan="2"><?php echo $label; ?></th>
-                    </tr>
-                    <tr>
-                        <td><?php echo $key_label; ?></td>
-                        <td><?php echo $value_label; ?></td>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php
-                        foreach($array AS $key => $arg){
-                            if(is_null($arg)){
-                                $args[] = "NULL";
-                            } else if(is_array($arg)){
-                                $args[] = "array(". sizeof($arg) .")";
-                            } else if(is_object($arg)){
-                                $args[] = get_class($arg) . "Object";
-                            } else if(is_bool($arg)){
-                                $args[] = ($arg)? "true": "false";
-                            } else if(is_integer($arg)){
-                                $args[] = "(int) $arg";
-                            } else if(is_float($arg)){
-                                $args[] = "(float) $arg";
-                            } else {
-                                $arg = htmlspecialchars(substr($arg, 0, 112));
-                                $arg = (strlen($arg) >= 112)? "$arg [...]": $arg;
-                                $args[] = "(string) '{$arg}'";
-                            }
-                            ?>
-                                <tr>
-                                    <td width="30%"><code><?php echo $key; ?></code></td>
-                                    <td width="70%"><code><?php echo $arg; ?></code></td>
-                                </tr>
-                            <?php
-                        }
-                    ?>
-                </tbody>
-            </table>
-        <?php
-    }
+    set_exception_handler("fox_exception_handler");

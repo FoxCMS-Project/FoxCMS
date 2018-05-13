@@ -120,8 +120,8 @@
                             <td class="field">
                                 <select id="behavior-id" name="page[behavior_id]">
                                     <option value="0" <?php selected($page->behavior_id == ""); ?>><?php _e("None"); ?></option>
-                                    <?php foreach($behaviors AS $behavior){ ?>
-                                        <option value="<?php echo $behavior; ?>" <?php selected($page->behavior_id, $behavior); ?>><?php echo Inflector::humanize($behavior); ?></option>
+                                    <?php foreach($behaviors AS $behavior_id => $behavior){ ?>
+                                        <option value="<?php echo $behavior_id; ?>" <?php selected($page->behavior_id, $behavior_id); ?>><?php echo $behavior["title"]; ?></option>
                                     <?php } ?>
                                 </select>
                             </td>
