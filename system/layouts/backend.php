@@ -140,7 +140,7 @@
                     <?php if(AuthUser::hasPermission("snippet_view")){ ?>
                         <li id="snippet-plugin" class="navi-item plugin">
                             <a href="<?php echo get_url("snippet"); ?>" class="item-link <?php echo $this->isCurrent("snippet"); ?>">
-                                <?php echo __("MSG_SNIPPETS"); ?>
+                                <?php echo __("Snippets"); ?>
                             </a>
                         </li>
                     <?php } ?>
@@ -151,6 +151,15 @@
                             </a>
                         </li>
                     <?php } ?>
+                    <!--
+                    <?php if(AuthUser::hasPermission("theme_view")){ ?>
+                        <li id="theme-plugin" class="navi-item plugin">
+                            <a href="<?php echo get_url("theme"); ?>" class="item-link <?php echo $this->isCurrent("theme"); ?>">
+                                <?php echo __("Themes"); ?>
+                            </a>
+                        </li>
+                    <?php } ?>
+                    -->
 
                     <?php
                         foreach(Plugin::$controllers AS $plugin_id => $plugin){

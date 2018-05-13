@@ -231,6 +231,7 @@
                 I18n::setLocale(Setting::get("default-language", DEFAULT_LANGUAGE));
             }
             Plugin::init();
+            Theme::init();
             Flash::init();
             Dispatcher::init();
 
@@ -248,7 +249,7 @@
             }
             define("FOX_RENDER", true);
             ob_start();
-            
+
             // The main.php file
             if(array_key_exists("FOX", $_GET)){
                 $path = trim(urldecode($_GET["FOX"]), "/");

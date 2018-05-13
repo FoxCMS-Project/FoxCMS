@@ -163,7 +163,7 @@
                             <td class="field">
                                 <select id="default-tab" name="setting[default-tab]" class="select">
                                     <option value="page" <?php selected("page", $config["default-tab"]) ?>><?php _e("Pages"); ?></option>
-                                    <option value="snippet" <?php selected("snippet", $config["default-tab"]) ?>><?php _e("MSG_SNIPPETS"); ?></option>
+                                    <option value="snippet" <?php selected("snippet", $config["default-tab"]) ?>><?php _e("Snippets"); ?></option>
                                     <option value="layout" <?php selected("layout", $config["default-tab"]) ?>><?php _e("Layouts"); ?></option>
                                     <option value="users" <?php selected("users", $config["default-tab"]) ?>><?php _e("Users"); ?></option>
                                     <option value="setting" <?php selected("setting", $config["default-tab"]) ?>><?php _e("Administration"); ?></option>

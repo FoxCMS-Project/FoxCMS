@@ -1,7 +1,7 @@
 <?php
 /*
  |  A ZipArchive and PKZIP PHP helper class.
- |  @file       ./includes/ZIP.php
+ |  @file       ./ZIP.php
  |  @author     SamBrishes@pytesNET
  |  @version    0.2.1 [0.2.1] - Beta
  |

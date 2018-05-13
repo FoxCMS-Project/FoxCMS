@@ -88,7 +88,7 @@
             <td class="help"></td>
         </tr>
         <tr>
-            <td class="label"><label for=""><?php _e(""); ?></label></td>
+            <td class="label"><label for=""></label></td>
             <td class="field"></td>
             <td class="help"></td>
         </tr>

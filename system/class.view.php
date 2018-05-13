@@ -13,7 +13,6 @@
  */
     if(!defined("FOXCMS")){ die(); }
 
-
     class View{
         /*
          |  INSTANCE VARs

@@ -13,7 +13,7 @@
  */
     if(!defined("FOXCMS")){ die(); }
 ?>
-<h1><?php _e("MSG_SNIPPETS"); ?></h1>
+<h1><?php _e("Snippets"); ?></h1>
 <div id="site-map-def" class="index-def">
     <div class="snippet">
         <?php _e("Snippet"); ?> (<a href="#" id="reorder-toggle"><?php _e("reorder"); ?></a>)

@@ -350,25 +350,6 @@
     ##
 
     /*
-     |  ADVANCED :: PAGE NOT FOUND
-     |  @since  0.8.4
-     |  @todo   ROADMAP #mark
-     |
-     |  @param  string  The URL, which has triggered this 404.
-     |
-     |  @return void
-     */
-    function page404($url = NULL){
-        Event::apply("page_not_found", $url);
-
-        header("HTTP/1.0 404 Not Found");
-        header("Status: 404 Not Found");
-        $view = new View("404");
-        $view->display();
-        die();
-    }
-
-    /*
      |  ADVANCED :: LOAD CONTENT FROM URL
      |  @since  0.8.4
      |
@@ -421,6 +402,25 @@
             return false;
         }
         return NULL;
+    }
+
+    /*
+     |  ADVANCED :: PAGE NOT FOUND
+     |  @since  0.8.4
+     |  @todo   ROADMAP #mark
+     |
+     |  @param  string  The URL, which has triggered this 404.
+     |
+     |  @return void
+     */
+    function page404($url = NULL){
+        Event::apply("page_not_found", $url);
+
+        header("HTTP/1.0 404 Not Found");
+        header("Status: 404 Not Found");
+        $view = new View("404");
+        $view->display();
+        die();
     }
 
     /*
