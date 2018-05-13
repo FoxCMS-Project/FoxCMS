@@ -166,6 +166,6 @@
             return '<img src="'.$url.'" width="'.$size.'" height="'.$size.'" '.$string.'/>';
         }
         static public function img($email, $attr = array(), $size = "32", $default = "mm", $rating = "g", $deprecated = false){
-            return self::image($email, $size, $default, $reting, $attr);
+            return self::image($email, $size, $default, $rating, $attr);
         }
     }

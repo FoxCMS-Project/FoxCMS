@@ -225,10 +225,11 @@
             Cron::init();
             Setting::init();
             AuthUser::init();
+
             if(AuthUser::isLoggedIn()){
-                I18n::setLocale(AuthUser::getUser()->language);
+                I18n::init(I18N_DIR, AuthUser::getUser()->language);
             } else {
-                I18n::setLocale(Setting::get("default-language", DEFAULT_LANGUAGE));
+                I18n::init(I18N_DIR, Setting::get("default-language", DEFAULT_LANGUAGE));
             }
 
             // Register Fox Defaults
