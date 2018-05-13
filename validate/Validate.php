@@ -159,7 +159,7 @@
             $moved = strtr(substr($iban, 4) . substr($iban, 0, 4), $chars);
             return (bcmod($moved, "97") == 1);
         }
-        
+
         /*
          |  VALIDATE PHONE NUMBERs
          |  @since  0.1.0
@@ -180,7 +180,7 @@
                 return false;
             }
             $number = strlen(preg_replace("#\D+#", "", $number));
-            
+
             if(isset($length["min"]) || isset($length["max"])){
                 if(isset($length["min"]) && $number < $length["min"]){
                     return false;
@@ -488,7 +488,7 @@
             if(strpos($string, "hsl") !== false && in_array("hsl", $format)){
                 $string = trim(ltrim($string, "hsla"), "()");
                 $number = array_map("floatval", explode(",", $string));
-                
+
                 if(count($number) >= 3 || count($number) <= 4){
                     if(count($number) < 3 || count($number) > 4){
                         return false;
@@ -577,7 +577,7 @@
             return self::valid_utf8($string);
         }
 
-        
+
         /*
          |  CREDIT CARD NUMBERs
          */
@@ -787,7 +787,7 @@
             "wf" => "986\d{2}",
             "yt" => "976\d{2}"
         );
-        
+
         /*
          |  IBAN CODEs
          */

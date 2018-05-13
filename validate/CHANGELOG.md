@@ -7,7 +7,7 @@ Version 0.2.0
 -   Add: The new `iban()` method, which validates IBAN numbers.
 -   Update: The `email()` method uses now `filter_var()` with the `FILTER_VALIDATE_EMAIL` flag.
 -   Update: The `email_rfc()` method is now just an alias for `email()`.
--   Update: The `email_domain()` method returns now `NULL` if `checkdnsrr()` isn't available. 
+-   Update: The `email_domain()` method returns now `NULL` if `checkdnsrr()` isn't available.
 -   Update: The `phone()` method accepts now associated-arrays to range-validate numbers.
 -   Update: The `range()` method accepts now 3-item-large ARRAY.
 -   Update: The `color()` method validates now also RGB(a) and HSL(a) color schemes.
