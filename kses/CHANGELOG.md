@@ -1,4 +1,4 @@
-Changelog
+CHANGELOG
 =========
 
 Version 0.3.0

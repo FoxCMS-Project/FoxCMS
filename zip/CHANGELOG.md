@@ -29,4 +29,4 @@ Version 0.2.0
 
 Version 0.1.0
 -------------
--   First version by Philippe Archambault
+-   Initial Version by Philippe Archambault.

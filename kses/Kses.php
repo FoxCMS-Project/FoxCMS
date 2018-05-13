@@ -26,7 +26,7 @@
  |  program; if not, visit http://www.gnu.org/licenses/gpl.html or write to Free Software
  |  Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
- 
+
 /*
  |  This class has been written with the following scripts / informations:
  |
