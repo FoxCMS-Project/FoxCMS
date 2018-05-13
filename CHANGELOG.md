@@ -36,6 +36,8 @@ Version 0.8.4 (Alpha)
 -   Add: **UserController** - The new `_store()` method handles now `_add()` and `_edit()`.
 -   Update: The complete folder structure has been changed due to easify the migration.
 -   Update: The new Version of the BigInteger helper class ([Version 1.0.3](https://pear.php.net/package/Math_BigInteger)).
+-   Update: The new Version of the Form helper Class ([Version 0.2.0](https://github.com/SamBrishes/FoxCMS/tree/helpers/form)).
+-   Update: The new Version of the Gravatar helper Class ([Version 0.2.0](https://github.com/SamBrishes/FoxCMS/tree/helpers/helpers)).
 -   Update: The new Version of the Hash helper class (Marked as deprecated!).
 -   Update: The new Version of the Kses helper class ([Version 0.3.0](https://pear.php.net/package/Kses)).
 -   Update: The new Version of the Validate helper Class ([Version 0.2.0](https://github.com/SamBrishes/FoxCMS/tree/helpers/validate)).
