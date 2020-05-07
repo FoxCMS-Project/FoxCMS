@@ -1,7 +1,7 @@
 Fox CMS
 =======
 >   Version: 0.8.4 (Alpha)<br />
->   Author: SamBrishes, pytesNET<br />
+>   Author: SamBrishes, pytesNET &lt;foxcms@pytes.net&gt;<br />
 >   Original: https://github.com/wolfcms/wolfcms
 
 Martijn van der Kleijn, the main developer of the "Wolf CMS" fork, has discontinued the project for
@@ -17,3 +17,5 @@ standards, step-by-step.
 Check out the [develop branch](https://github.com/SamBrishes/FoxCMS/tree/develop) or the respective
 [changelog file](https://github.com/SamBrishes/FoxCMS/blob/develop/CHANGELOG.md) to see the current 
 status of the first Fox CMS Version 0.8.4 (Alpha)!
+
+**Follow us on [Twitter](https://Twitter.com/FoxCMS_Project) to stay up to date.**
