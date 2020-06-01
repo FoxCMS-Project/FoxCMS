@@ -227,6 +227,9 @@
             }
 
             // Return
-            return ($bool)? $return: ($return)? "current": "";
+            if($bool) {
+                return $return;
+            }
+            return ($return)? "current": "";
         }
     }
